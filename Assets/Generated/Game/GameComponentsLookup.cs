@@ -8,21 +8,30 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int PlayerTag = 0;
-    public const int PosComp = 1;
-    public const int VelComp = 2;
+    public const int CreateGameObjCmdComp = 0;
+    public const int PlayerTag = 1;
+    public const int PosComp = 2;
+    public const int RotComp = 3;
+    public const int VelComp = 4;
+    public const int ViewComp = 5;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
+        "CreateGameObjCmdComp",
         "PlayerTag",
         "PosComp",
-        "VelComp"
+        "RotComp",
+        "VelComp",
+        "ViewComp"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(CreateGameObjCmdComp),
         typeof(PlayerTag),
         typeof(PosComp),
-        typeof(VelComp)
+        typeof(RotComp),
+        typeof(VelComp),
+        typeof(ViewComp)
     };
 }

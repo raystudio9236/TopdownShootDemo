@@ -9,7 +9,8 @@ public class MoveSystem : IExecuteSystem
     {
         _group = contexts.game.GetGroup(GameMatcher.AllOf(
             GameMatcher.PosComp,
-            GameMatcher.VelComp
+            GameMatcher.VelComp,
+            GameMatcher.ViewComp
         ));
     }
 
@@ -25,6 +26,7 @@ public class MoveSystem : IExecuteSystem
                 posComp.Value.x + dt * velComp.Value.x,
                 posComp.Value.y + dt * velComp.Value.y
             ));
+            entity.viewComp.View.transform.position = entity.posComp.Value;
         }
     }
 }
