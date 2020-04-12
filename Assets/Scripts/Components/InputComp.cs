@@ -6,4 +6,5 @@ public sealed class InputComp : IComponent
 {
     public Vector2 Dir;
     public Vector2 MousePos;
+    public bool Fire;
 }

@@ -11,19 +11,21 @@ public partial class InputEntity {
     public InputComp inputComp { get { return (InputComp)GetComponent(InputComponentsLookup.InputComp); } }
     public bool hasInputComp { get { return HasComponent(InputComponentsLookup.InputComp); } }
 
-    public void AddInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos) {
+    public void AddInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newFire) {
         var index = InputComponentsLookup.InputComp;
         var component = (InputComp)CreateComponent(index, typeof(InputComp));
         component.Dir = newDir;
         component.MousePos = newMousePos;
+        component.Fire = newFire;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos) {
+    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newFire) {
         var index = InputComponentsLookup.InputComp;
         var component = (InputComp)CreateComponent(index, typeof(InputComp));
         component.Dir = newDir;
         component.MousePos = newMousePos;
+        component.Fire = newFire;
         ReplaceComponent(index, component);
     }
 

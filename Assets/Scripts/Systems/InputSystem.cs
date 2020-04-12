@@ -17,6 +17,7 @@ public class InputSystem : IExecuteSystem
             Input.GetAxis("Horizontal"),
             Input.GetAxis("Vertical")
         ),
-            Input.mousePosition);
+            Input.mousePosition,
+            Input.GetMouseButton(0));
     }
 }

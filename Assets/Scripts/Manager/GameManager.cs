@@ -11,13 +11,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        var playerEntity = Contexts.sharedInstance.game.CreateEntity();
-        playerEntity.isPlayerTag = true;
-        playerEntity.AddPosComp(Vector2.zero);
-        playerEntity.AddVelComp(Vector2.zero);
-        playerEntity.AddRotComp(90);
-        playerEntity.AddCreateGameObjCmdComp("Player");
-
         _gameSystems.Initialize();
     }
 
@@ -27,7 +20,7 @@ public class GameManager : MonoBehaviour
         _gameSystems.Cleanup();
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         _gameSystems.TearDown();
     }

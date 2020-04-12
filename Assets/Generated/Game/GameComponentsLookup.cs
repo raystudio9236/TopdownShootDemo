@@ -9,16 +9,24 @@
 public static class GameComponentsLookup {
 
     public const int CreateGameObjCmdComp = 0;
-    public const int PlayerTag = 1;
-    public const int PosComp = 2;
-    public const int RotComp = 3;
-    public const int VelComp = 4;
-    public const int ViewComp = 5;
+    public const int DestroyFlag = 1;
+    public const int DestroyFlagListener = 2;
+    public const int FireCmdComp = 3;
+    public const int LifetimeComp = 4;
+    public const int PlayerTag = 5;
+    public const int PosComp = 6;
+    public const int RotComp = 7;
+    public const int VelComp = 8;
+    public const int ViewComp = 9;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "CreateGameObjCmdComp",
+        "DestroyFlag",
+        "DestroyFlagListener",
+        "FireCmdComp",
+        "LifetimeComp",
         "PlayerTag",
         "PosComp",
         "RotComp",
@@ -28,6 +36,10 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(CreateGameObjCmdComp),
+        typeof(DestroyFlag),
+        typeof(DestroyFlagListenerComponent),
+        typeof(FireCmdComp),
+        typeof(LifetimeComp),
         typeof(PlayerTag),
         typeof(PosComp),
         typeof(RotComp),

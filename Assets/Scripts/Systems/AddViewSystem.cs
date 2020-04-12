@@ -25,19 +25,28 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
     {
         foreach (var entity in entities)
         {
-            var obj = SpawnObj(entity);
-            entity.AddViewComp(obj);
+            var view = SpawnObj(entity);
+            entity.AddViewComp(view);
             entity.RemoveCreateGameObjCmdComp();
         }
     }
 
-    private GameObject SpawnObj(GameEntity gameEntity)
+    private View SpawnObj(GameEntity gameEntity)
     {
         var path = gameEntity.createGameObjCmdComp.Path;
         var prefab = Resources.Load<GameObject>(path);
-        var obj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity);
-        var view = obj.GetComponent<View>();
+        View view = null;
+        if (path == "Bullet")
+        {
+            view = PoolManager.Instance.BulletPrefabPool.Spawn();
+        }
+        else
+        {
+            var obj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            view = obj.GetComponent<View>();
+        }
+
         view.Link(_contexts, gameEntity);
-        return obj;
+        return view;
     }
 }
