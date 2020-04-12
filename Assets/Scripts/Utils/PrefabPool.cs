@@ -143,18 +143,18 @@ public class PrefabPool<T> where T : Component
     /// <summary>
     /// 回收对象
     /// </summary>
-    public bool Recycle(T obj)
+    public bool Recycle(T comp)
     {
-        if (!_outPoolObjs.Contains(obj))
+        if (!_outPoolObjs.Contains(comp))
         {
-            Object.Destroy(obj);
+            Object.Destroy(comp.gameObject);
             return false;
         }
 
-        _outPoolObjs.Remove(obj);
-        obj.gameObject.SetActive(false);
-        obj.transform.SetParent(PoolRoot);
-        _inPoolObjs.Push(obj);
+        _outPoolObjs.Remove(comp);
+        comp.gameObject.SetActive(false);
+        comp.transform.SetParent(PoolRoot);
+        _inPoolObjs.Push(comp);
 
         return true;
     }
