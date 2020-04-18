@@ -1,12 +1,42 @@
+using Cinemachine;
+using Entitas.Unity;
 using UnityEngine;
 
-public class PlayerView : View
+public class PlayerView : View, IPhysicsView
 {
-    public Transform Shoot;
+    [SerializeField] private Transform _shoot;
+    [SerializeField] private Rigidbody2D _rigidbody;
+
+    public Transform Shoot => _shoot;
+    public Rigidbody2D Rigidbody => _rigidbody;
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        var selfEntity = _selfEntity;
+        var otherEntity = other.gameObject.GetEntityLink().entity as GameEntity;
+
+        GameManager.Contexts.physics.physicsComp.CollisionInfos.Add(
+            new CollisionInfo
+            {
+                SourceId = selfEntity.idComp.Value,
+                OtherId = otherEntity.idComp.Value
+            });
+    }
+
+    protected override void OnLinkEntityHandler()
+    {
+        base.OnLinkEntityHandler();
+
+        var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
+        playerFollowCinemachine.Follow = transform;
+    }
 
     protected override void OnDestroyEntityHandler()
     {
         base.OnDestroyEntityHandler();
+
+        var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
+        playerFollowCinemachine.Follow = null;
         
         Destroy(gameObject);
     }

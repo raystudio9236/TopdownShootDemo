@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class View : MonoBehaviour, IView, IDestroyFlagListener
 {
+    protected GameEntity _selfEntity => 
+        gameObject.GetEntityLink().entity as GameEntity;
+    
     public void Link(Contexts contexts, IEntity entity)
     {
         gameObject.Link(entity);
@@ -15,6 +18,8 @@ public class View : MonoBehaviour, IView, IDestroyFlagListener
         transform.rotation = Quaternion.Euler(0, 
             0, 
             gameEntity.rotComp.Angle);
+
+        OnLinkEntityHandler();
     }
 
     public void OnDestroyFlag(GameEntity entity)
@@ -22,6 +27,10 @@ public class View : MonoBehaviour, IView, IDestroyFlagListener
         gameObject.Unlink();
         
         OnDestroyEntityHandler();
+    }
+
+    protected virtual void OnLinkEntityHandler()
+    {
     }
 
     protected virtual void OnDestroyEntityHandler()

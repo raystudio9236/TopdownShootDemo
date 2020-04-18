@@ -18,6 +18,8 @@ public static class EntityUtil
     {
         var playerEntity = contexts.game.CreateEntity();
         playerEntity.isPlayerTag = true;
+        playerEntity.isPhysicsTag = true;
+
         playerEntity.AddPosComp(pos);
         playerEntity.AddVelComp(vel);
         playerEntity.AddRotComp(angle);
@@ -34,6 +36,8 @@ public static class EntityUtil
         {
             var enemyEntity = contexts.game.CreateEntity();
             enemyEntity.isEnemyTag = true;
+            enemyEntity.isPhysicsTag = true;
+
             enemyEntity.AddPosComp(pos);
             enemyEntity.AddVelComp(vel);
             enemyEntity.AddRotComp(angle);
@@ -49,6 +53,8 @@ public static class EntityUtil
     {
         var bulletEntity = contexts.game.CreateEntity();
         bulletEntity.isBulletTag = true;
+        bulletEntity.isPhysicsTag = true;
+
         bulletEntity.AddPosComp(pos);
         bulletEntity.AddVelComp(vel);
         bulletEntity.AddRotComp(angle);

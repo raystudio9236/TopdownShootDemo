@@ -9,7 +9,7 @@ public class PoolManager : MonoBehaviour
     private void Awake()
     {
         if (Instance != null)
-            GameObject.Destroy(Instance.gameObject);
+            Destroy(Instance.gameObject);
 
         Instance = this;
         

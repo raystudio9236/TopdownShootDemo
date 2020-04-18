@@ -1,5 +1,4 @@
 using Entitas;
-using UnityEngine;
 
 public class MoveSystem : IExecuteSystem
 {
@@ -8,25 +7,19 @@ public class MoveSystem : IExecuteSystem
     public MoveSystem(Contexts contexts)
     {
         _group = contexts.game.GetGroup(GameMatcher.AllOf(
-            GameMatcher.PosComp,
             GameMatcher.VelComp,
+            GameMatcher.PhysicsTag,
             GameMatcher.ViewComp
         ));
     }
 
     public void Execute()
     {
-        var dt = Time.deltaTime;
-
         foreach (var entity in _group.GetEntities())
         {
-            var posComp = entity.posComp;
             var velComp = entity.velComp;
-            entity.ReplacePosComp(new Vector2(
-                posComp.Value.x + dt * velComp.Value.x,
-                posComp.Value.y + dt * velComp.Value.y
-            ));
-            entity.viewComp.View.transform.position = entity.posComp.Value;
+            var rigidbody = ((IPhysicsView) entity.viewComp.View).Rigidbody;
+            rigidbody.velocity = velComp.Value;
         }
     }
 }
