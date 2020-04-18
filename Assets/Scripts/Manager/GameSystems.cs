@@ -26,6 +26,8 @@ public class GameSystems : Feature
         Add(new LifetimeSystem(contexts));
 
         Add(new GameEventSystems(contexts));
+
+        Add(new SyncPosSystem(contexts));
         
         // 清理
         Add(new InputCleanupSystem(contexts));
