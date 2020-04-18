@@ -18,6 +18,8 @@ public class View : MonoBehaviour, IView, IDestroyFlagListener
         transform.rotation = Quaternion.Euler(0, 
             0, 
             gameEntity.rotComp.Angle);
+
+        OnLinkEntityHandler();
     }
 
     public void OnDestroyFlag(GameEntity entity)
@@ -25,6 +27,10 @@ public class View : MonoBehaviour, IView, IDestroyFlagListener
         gameObject.Unlink();
         
         OnDestroyEntityHandler();
+    }
+
+    protected virtual void OnLinkEntityHandler()
+    {
     }
 
     protected virtual void OnDestroyEntityHandler()
