@@ -24,10 +24,11 @@ public class GameSystems : Feature
         Add(new AddViewSystem(contexts));
         
         Add(new LifetimeSystem(contexts));
+        Add(new SyncPosSystem(contexts));
+
+        Add(new PhysicsSystem(contexts));
 
         Add(new GameEventSystems(contexts));
-
-        Add(new SyncPosSystem(contexts));
         
         // 清理
         Add(new InputCleanupSystem(contexts));

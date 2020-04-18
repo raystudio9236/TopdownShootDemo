@@ -8,7 +8,7 @@ public class MoveSystem : IExecuteSystem
     {
         _group = contexts.game.GetGroup(GameMatcher.AllOf(
             GameMatcher.VelComp,
-            GameMatcher.PhysicsComp,
+            GameMatcher.PhysicsTag,
             GameMatcher.ViewComp
         ));
     }

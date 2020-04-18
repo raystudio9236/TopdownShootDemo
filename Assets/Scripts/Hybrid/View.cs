@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class View : MonoBehaviour, IView, IDestroyFlagListener
 {
+    protected GameEntity _selfEntity => 
+        gameObject.GetEntityLink().entity as GameEntity;
+    
     public void Link(Contexts contexts, IEntity entity)
     {
         gameObject.Link(entity);

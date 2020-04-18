@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PhysicsComp physicsCompComponent = new PhysicsComp();
+    static readonly PhysicsTag physicsTagComponent = new PhysicsTag();
 
-    public bool isPhysicsComp {
-        get { return HasComponent(GameComponentsLookup.PhysicsComp); }
+    public bool isPhysicsTag {
+        get { return HasComponent(GameComponentsLookup.PhysicsTag); }
         set {
-            if (value != isPhysicsComp) {
-                var index = GameComponentsLookup.PhysicsComp;
+            if (value != isPhysicsTag) {
+                var index = GameComponentsLookup.PhysicsTag;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : physicsCompComponent;
+                            : physicsTagComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPhysicsComp;
+    static Entitas.IMatcher<GameEntity> _matcherPhysicsTag;
 
-    public static Entitas.IMatcher<GameEntity> PhysicsComp {
+    public static Entitas.IMatcher<GameEntity> PhysicsTag {
         get {
-            if (_matcherPhysicsComp == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PhysicsComp);
+            if (_matcherPhysicsTag == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PhysicsTag);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPhysicsComp = matcher;
+                _matcherPhysicsTag = matcher;
             }
 
-            return _matcherPhysicsComp;
+            return _matcherPhysicsTag;
         }
     }
 }

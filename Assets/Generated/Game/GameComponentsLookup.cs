@@ -16,7 +16,7 @@ public static class GameComponentsLookup {
     public const int FireCmdComp = 5;
     public const int IdComp = 6;
     public const int LifetimeComp = 7;
-    public const int PhysicsComp = 8;
+    public const int PhysicsTag = 8;
     public const int PlayerTag = 9;
     public const int PosComp = 10;
     public const int RotComp = 11;
@@ -35,7 +35,7 @@ public static class GameComponentsLookup {
         "FireCmdComp",
         "IdComp",
         "LifetimeComp",
-        "PhysicsComp",
+        "PhysicsTag",
         "PlayerTag",
         "PosComp",
         "RotComp",
@@ -53,7 +53,7 @@ public static class GameComponentsLookup {
         typeof(FireCmdComp),
         typeof(IdComp),
         typeof(LifetimeComp),
-        typeof(PhysicsComp),
+        typeof(PhysicsTag),
         typeof(PlayerTag),
         typeof(PosComp),
         typeof(RotComp),

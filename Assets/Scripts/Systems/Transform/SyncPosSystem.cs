@@ -9,7 +9,7 @@ public class SyncPosSystem : IExecuteSystem
         _group = contexts.game.GetGroup(GameMatcher.AllOf(
             GameMatcher.ViewComp,
             GameMatcher.PosComp,
-            GameMatcher.PhysicsComp
+            GameMatcher.PhysicsTag
         ));
     }
     
