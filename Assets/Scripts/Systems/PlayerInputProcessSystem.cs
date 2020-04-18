@@ -34,7 +34,7 @@ public class PlayerInputProcessSystem : ReactiveSystem<InputEntity>
             var worldPos = _mainCamera.ScreenToWorldPoint(mousePos);
             var dir = new Vector2(worldPos.x, worldPos.y)
                       - playerEntity.posComp.Value;
-            var angle = Vector2.SignedAngle(Vector2.up, dir);
+            var angle = dir.Vector2Angle2D();
             playerEntity.ReplaceRotComp(angle);
 
             // 处理玩家开火

@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        var contexts = Contexts.sharedInstance;
+        contexts.SubscribeId();
+        
         _gameSystems.Initialize();
     }
 

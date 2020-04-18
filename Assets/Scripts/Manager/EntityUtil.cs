@@ -25,6 +25,22 @@ public static class EntityUtil
 
         return playerEntity;
     }
+    
+        public static GameEntity CreateEnemyEntity(
+            Contexts contexts,
+            Vector2 pos,
+            Vector2 vel,
+            float angle = 0)
+        {
+            var enemyEntity = contexts.game.CreateEntity();
+            enemyEntity.isEnemyTag = true;
+            enemyEntity.AddPosComp(pos);
+            enemyEntity.AddVelComp(vel);
+            enemyEntity.AddRotComp(angle);
+            enemyEntity.AddCreateGameObjCmdComp("Enemy");
+    
+            return enemyEntity;
+        }
 
     public static GameEntity CreateBulletEntity(Contexts contexts,
         Vector2 pos,
@@ -32,6 +48,7 @@ public static class EntityUtil
         float angle = 0)
     {
         var bulletEntity = contexts.game.CreateEntity();
+        bulletEntity.isBulletTag = true;
         bulletEntity.AddPosComp(pos);
         bulletEntity.AddVelComp(vel);
         bulletEntity.AddRotComp(angle);
