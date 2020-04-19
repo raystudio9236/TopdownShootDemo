@@ -9,6 +9,6 @@ public class BulletView : View, IPhysicsView
 
     protected override void OnDestroyEntityHandler()
     {
-        PoolManager.Instance.BulletPrefabPool.Recycle(this);
+        PoolManager.Instance.Recycle(this, ActorTag.Bullet);
     }
 }

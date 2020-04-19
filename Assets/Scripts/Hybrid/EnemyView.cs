@@ -11,6 +11,6 @@ public class EnemyView : View, IPhysicsView
     {
         base.OnDestroyEntityHandler();
 
-        Destroy(gameObject);
+        PoolManager.Instance.Recycle(this, ActorTag.Enemy);
     }
 }

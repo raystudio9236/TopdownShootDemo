@@ -24,7 +24,7 @@ public class PlayerView : View, IPhysicsView
 
         var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
         playerFollowCinemachine.Follow = null;
-        
-        Destroy(gameObject);
+
+        PoolManager.Instance.Recycle(this, ActorTag.Player);
     }
 }
