@@ -22,6 +22,7 @@ public class PlayerInputProcessSystem : ReactiveSystem<InputEntity>
         foreach (var inputEntity in entities)
         {
             // 处理玩家移动
+            // todo 玩家的移动速度暂时设置为10
             playerEntity.ReplaceVelComp(
                 new Vector2(
                     inputEntity.inputComp.Dir.x * 10,

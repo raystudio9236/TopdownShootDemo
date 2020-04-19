@@ -23,7 +23,9 @@ public static class EntityUtil
         playerEntity.AddPosComp(pos);
         playerEntity.AddVelComp(vel);
         playerEntity.AddRotComp(angle);
-        playerEntity.AddCreateGameObjCmdComp("Player");
+        playerEntity.AddCreateGameObjCmdComp(ActorTag.Player);
+        
+        playerEntity.AddTimerComp(0f);
 
         return playerEntity;
     }
@@ -41,7 +43,7 @@ public static class EntityUtil
             enemyEntity.AddPosComp(pos);
             enemyEntity.AddVelComp(vel);
             enemyEntity.AddRotComp(angle);
-            enemyEntity.AddCreateGameObjCmdComp("Enemy");
+            enemyEntity.AddCreateGameObjCmdComp(ActorTag.Enemy);
     
             return enemyEntity;
         }
@@ -58,7 +60,7 @@ public static class EntityUtil
         bulletEntity.AddPosComp(pos);
         bulletEntity.AddVelComp(vel);
         bulletEntity.AddRotComp(angle);
-        bulletEntity.AddCreateGameObjCmdComp("Bullet");
+        bulletEntity.AddCreateGameObjCmdComp(ActorTag.Bullet);
         bulletEntity.AddLifetimeComp(1);
 
         return bulletEntity;

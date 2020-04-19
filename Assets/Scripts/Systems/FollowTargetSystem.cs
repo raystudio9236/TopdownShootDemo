@@ -28,6 +28,7 @@ public class FollowTargetSystem : IExecuteSystem
             var dirVector = (targetPos - selfPos).normalized;
             
             // 朝着目标方向
+            // todo 敌人跟踪主角的速度，暂时设置为5
             entity.ReplaceRotComp(dirVector.Vector2Angle2D());
             entity.ReplaceVelComp(dirVector * 5);
         }
