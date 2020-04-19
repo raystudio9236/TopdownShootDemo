@@ -40,6 +40,10 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
         {
             view = PoolManager.Instance.BulletPrefabPool.Spawn();
         }
+        else if (path == "Enemy")
+        {
+            view = PoolManager.Instance.EnemyPrefabPool.Spawn();
+        }
         else
         {
             var obj = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity);

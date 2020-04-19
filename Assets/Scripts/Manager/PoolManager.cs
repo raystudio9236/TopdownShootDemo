@@ -5,6 +5,7 @@ public class PoolManager : MonoBehaviour
     public static PoolManager Instance;
     
     public ViewPrefabPool BulletPrefabPool;
+    public ViewPrefabPool EnemyPrefabPool;
     
     private void Awake()
     {
@@ -14,5 +15,6 @@ public class PoolManager : MonoBehaviour
         Instance = this;
         
         BulletPrefabPool.Preload(5);
+        EnemyPrefabPool.Preload(5);
     }
 }
