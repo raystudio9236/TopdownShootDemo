@@ -12,6 +12,8 @@ public class GameSystems : Feature
         Add(new InputSystem(contexts));
         Add(new PlayerInputProcessSystem(contexts));
 
+        Add(new UpdateTimerSystem(contexts));
+
         // 目标
         Add(new FollowTargetSystem(contexts));
 

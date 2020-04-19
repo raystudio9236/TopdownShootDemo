@@ -24,6 +24,8 @@ public static class EntityUtil
         playerEntity.AddVelComp(vel);
         playerEntity.AddRotComp(angle);
         playerEntity.AddCreateGameObjCmdComp(ActorTag.Player);
+        
+        playerEntity.AddTimerComp(0f);
 
         return playerEntity;
     }
