@@ -5,11 +5,6 @@ public static class EntityUtil
     /// <summary>
     /// 创建 Player Entity
     /// </summary>
-    /// <param name="contexts"></param>
-    /// <param name="pos"></param>
-    /// <param name="vel"></param>
-    /// <param name="angle"></param>
-    /// <returns></returns>
     public static GameEntity CreatePlayerEntity(
         Contexts contexts,
         Vector2 pos,
@@ -24,29 +19,29 @@ public static class EntityUtil
         playerEntity.AddVelComp(vel);
         playerEntity.AddRotComp(angle);
         playerEntity.AddCreateGameObjCmdComp(ActorTag.Player);
-        
+
         playerEntity.AddTimerComp(0f);
 
         return playerEntity;
     }
-    
-        public static GameEntity CreateEnemyEntity(
-            Contexts contexts,
-            Vector2 pos,
-            Vector2 vel,
-            float angle = 0)
-        {
-            var enemyEntity = contexts.game.CreateEntity();
-            enemyEntity.isEnemyTag = true;
-            enemyEntity.isPhysicsTag = true;
 
-            enemyEntity.AddPosComp(pos);
-            enemyEntity.AddVelComp(vel);
-            enemyEntity.AddRotComp(angle);
-            enemyEntity.AddCreateGameObjCmdComp(ActorTag.Enemy);
-    
-            return enemyEntity;
-        }
+    public static GameEntity CreateEnemyEntity(
+        Contexts contexts,
+        Vector2 pos,
+        Vector2 vel,
+        float angle = 0)
+    {
+        var enemyEntity = contexts.game.CreateEntity();
+        enemyEntity.isEnemyTag = true;
+        enemyEntity.isPhysicsTag = true;
+
+        enemyEntity.AddPosComp(pos);
+        enemyEntity.AddVelComp(vel);
+        enemyEntity.AddRotComp(angle);
+        enemyEntity.AddCreateGameObjCmdComp(ActorTag.Enemy);
+
+        return enemyEntity;
+    }
 
     public static GameEntity CreateBulletEntity(Contexts contexts,
         Vector2 pos,
@@ -64,5 +59,24 @@ public static class EntityUtil
         bulletEntity.AddLifetimeComp(1);
 
         return bulletEntity;
+    }
+    
+    public static GameEntity CreateCoinEntity(
+        Contexts contexts,
+        Vector2 pos,
+        Vector2 vel,
+        float angle = 0)
+    {
+        var coinEntity = contexts.game.CreateEntity();
+        coinEntity.isPhysicsTag = true;
+
+        coinEntity.AddPosComp(pos);
+        coinEntity.AddVelComp(vel);
+        coinEntity.AddRotComp(angle);
+        coinEntity.AddCreateGameObjCmdComp(ActorTag.Coin);
+        
+        coinEntity.AddLifetimeComp(3f);
+
+        return coinEntity;
     }
 }

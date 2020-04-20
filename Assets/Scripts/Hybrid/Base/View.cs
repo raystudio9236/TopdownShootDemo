@@ -1,9 +1,12 @@
 ﻿using Entitas;
 using Entitas.Unity;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class View : MonoBehaviour, IView, IDestroyFlagListener
 {
+    [SerializeField] protected ActorTag actorTag;
+    
     protected GameEntity _selfEntity =>
         gameObject.GetEntityLink().entity as GameEntity;
 
@@ -35,6 +38,7 @@ public class View : MonoBehaviour, IView, IDestroyFlagListener
 
     protected virtual void OnDestroyEntityHandler()
     {
+        PoolManager.Instance.Recycle(this, actorTag);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

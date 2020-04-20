@@ -2,13 +2,11 @@ using Cinemachine;
 using Entitas.Unity;
 using UnityEngine;
 
-public class PlayerView : View, IPhysicsView
+public class PlayerView : PhysicsView
 {
     [SerializeField] private Transform _shoot;
-    [SerializeField] private Rigidbody2D _rigidbody;
 
     public Transform Shoot => _shoot;
-    public Rigidbody2D Rigidbody => _rigidbody;
 
     protected override void OnLinkEntityHandler()
     {
@@ -24,7 +22,5 @@ public class PlayerView : View, IPhysicsView
 
         var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
         playerFollowCinemachine.Follow = null;
-
-        PoolManager.Instance.Recycle(this, ActorTag.Player);
     }
 }

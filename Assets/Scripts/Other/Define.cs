@@ -6,6 +6,7 @@ public enum ActorTag
     Player,
     Bullet,
     Enemy,
+    Coin,
 }
 
 [Serializable]
