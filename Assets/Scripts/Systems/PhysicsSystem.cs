@@ -30,6 +30,14 @@ public class PhysicsSystem : IExecuteSystem
                     EnemyUtil.CreateCoin(otherEntity);
                 }
             }
+            else if (sourceEntity.isCoinTag)
+            {
+                if (otherEntity.isPlayerTag)
+                {
+                    if (!sourceEntity.hasTargetComp)
+                        sourceEntity.AddTargetComp(otherEntity.idComp.Value);
+                }
+            }
         }
         
         _physics.CollisionInfos.Clear();

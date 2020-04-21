@@ -9,26 +9,28 @@
 public static class GameComponentsLookup {
 
     public const int BulletTag = 0;
-    public const int CreateGameObjCmdComp = 1;
-    public const int DestroyFlag = 2;
-    public const int DestroyFlagListener = 3;
-    public const int EnemyTag = 4;
-    public const int FireCmdComp = 5;
-    public const int IdComp = 6;
-    public const int LifetimeComp = 7;
-    public const int PhysicsTag = 8;
-    public const int PlayerTag = 9;
-    public const int PosComp = 10;
-    public const int RotComp = 11;
-    public const int TargetComp = 12;
-    public const int TimerComp = 13;
-    public const int VelComp = 14;
-    public const int ViewComp = 15;
+    public const int CoinTag = 1;
+    public const int CreateGameObjCmdComp = 2;
+    public const int DestroyFlag = 3;
+    public const int DestroyFlagListener = 4;
+    public const int EnemyTag = 5;
+    public const int FireCmdComp = 6;
+    public const int IdComp = 7;
+    public const int LifetimeComp = 8;
+    public const int PhysicsTag = 9;
+    public const int PlayerTag = 10;
+    public const int PosComp = 11;
+    public const int RotComp = 12;
+    public const int TargetComp = 13;
+    public const int TimerComp = 14;
+    public const int VelComp = 15;
+    public const int ViewComp = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "BulletTag",
+        "CoinTag",
         "CreateGameObjCmdComp",
         "DestroyFlag",
         "DestroyFlagListener",
@@ -48,6 +50,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(BulletTag),
+        typeof(CoinTag),
         typeof(CreateGameObjCmdComp),
         typeof(DestroyFlag),
         typeof(DestroyFlagListenerComponent),

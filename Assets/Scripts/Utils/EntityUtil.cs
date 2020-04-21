@@ -68,6 +68,7 @@ public static class EntityUtil
         float angle = 0)
     {
         var coinEntity = contexts.game.CreateEntity();
+        coinEntity.isCoinTag = true;
         coinEntity.isPhysicsTag = true;
 
         coinEntity.AddPosComp(pos);
