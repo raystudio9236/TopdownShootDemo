@@ -21,12 +21,13 @@ public static class GameComponentsLookup {
     public const int PlayerTag = 10;
     public const int PosComp = 11;
     public const int RotComp = 12;
-    public const int TargetComp = 13;
-    public const int TimerComp = 14;
-    public const int VelComp = 15;
-    public const int ViewComp = 16;
+    public const int StatsComp = 13;
+    public const int TargetComp = 14;
+    public const int TimerComp = 15;
+    public const int VelComp = 16;
+    public const int ViewComp = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "BulletTag",
@@ -42,6 +43,7 @@ public static class GameComponentsLookup {
         "PlayerTag",
         "PosComp",
         "RotComp",
+        "StatsComp",
         "TargetComp",
         "TimerComp",
         "VelComp",
@@ -62,6 +64,7 @@ public static class GameComponentsLookup {
         typeof(PlayerTag),
         typeof(PosComp),
         typeof(RotComp),
+        typeof(StatsComp),
         typeof(TargetComp),
         typeof(TimerComp),
         typeof(VelComp),

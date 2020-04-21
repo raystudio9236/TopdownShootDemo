@@ -14,7 +14,6 @@ public class PlayerSpawnSystem : IInitializeSystem
     {
         EntityUtil.CreatePlayerEntity(_contexts, 
             Vector2.zero, 
-            Vector2.zero,
             0);
     }
 }

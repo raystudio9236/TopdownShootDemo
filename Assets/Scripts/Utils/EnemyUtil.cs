@@ -14,7 +14,6 @@ public static class EnemyUtil
 
             EntityUtil.CreateCoinEntity(GameManager.Contexts,
                 pos + new Vector2(x, y),
-                Vector2.zero,
                 0f);
         }
     }
