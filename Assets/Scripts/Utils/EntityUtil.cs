@@ -79,6 +79,7 @@ public static class EntityUtil
         coinEntity.AddVelComp(Vector2.zero);
         coinEntity.AddRotComp(angle);
         coinEntity.AddCreateGameObjCmdComp(ActorTag.Coin);
+        coinEntity.AddCloseDestroyComp(0.2f);
         
         coinEntity.AddLifetimeComp(3f);
 

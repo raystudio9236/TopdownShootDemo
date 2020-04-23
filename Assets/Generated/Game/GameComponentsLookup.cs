@@ -9,28 +9,30 @@
 public static class GameComponentsLookup {
 
     public const int BulletTag = 0;
-    public const int CoinTag = 1;
-    public const int CreateGameObjCmdComp = 2;
-    public const int DestroyFlag = 3;
-    public const int DestroyFlagListener = 4;
-    public const int EnemyTag = 5;
-    public const int FireCmdComp = 6;
-    public const int IdComp = 7;
-    public const int LifetimeComp = 8;
-    public const int PhysicsTag = 9;
-    public const int PlayerTag = 10;
-    public const int PosComp = 11;
-    public const int RotComp = 12;
-    public const int StatsComp = 13;
-    public const int TargetComp = 14;
-    public const int TimerComp = 15;
-    public const int VelComp = 16;
-    public const int ViewComp = 17;
+    public const int CloseDestroyComp = 1;
+    public const int CoinTag = 2;
+    public const int CreateGameObjCmdComp = 3;
+    public const int DestroyFlag = 4;
+    public const int DestroyFlagListener = 5;
+    public const int EnemyTag = 6;
+    public const int FireCmdComp = 7;
+    public const int IdComp = 8;
+    public const int LifetimeComp = 9;
+    public const int PhysicsTag = 10;
+    public const int PlayerTag = 11;
+    public const int PosComp = 12;
+    public const int RotComp = 13;
+    public const int StatsComp = 14;
+    public const int TargetComp = 15;
+    public const int TimerComp = 16;
+    public const int VelComp = 17;
+    public const int ViewComp = 18;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "BulletTag",
+        "CloseDestroyComp",
         "CoinTag",
         "CreateGameObjCmdComp",
         "DestroyFlag",
@@ -52,6 +54,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(BulletTag),
+        typeof(CloseDestroyComp),
         typeof(CoinTag),
         typeof(CreateGameObjCmdComp),
         typeof(DestroyFlag),

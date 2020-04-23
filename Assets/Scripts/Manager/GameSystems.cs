@@ -26,6 +26,8 @@ public class GameSystems : Feature
 
         Add(new PhysicsSystem(contexts));
 
+        Add(new CloseDestroySystem(contexts));
+
         Add(new GameEventSystems(contexts));
 
         // 清理

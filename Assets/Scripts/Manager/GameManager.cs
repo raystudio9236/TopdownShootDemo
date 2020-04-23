@@ -11,13 +11,18 @@ public class GameManager : MonoBehaviour
     private GameSystems _gameSystems;
     private FixedUpdateGameSystems _fixedUpdateGameSystems;
 
+    public static GameEntity GetEntity(int id)
+    {
+        return Contexts.game.GetEntityWithIdComp(id);
+    }
+
     private void Awake()
     {
         if (Instance != null)
             Destroy(Instance.gameObject);
 
         Instance = this;
-        
+
         _contexts = Contexts.sharedInstance;
         _contexts.SubscribeId();
 
