@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using ActionGraph;
 using UnityEngine;
 
 public static class EntityUtil
@@ -22,6 +24,16 @@ public static class EntityUtil
         playerEntity.AddCreateGameObjCmdComp(ActorTag.Player);
 
         playerEntity.AddTimerComp(0f);
+        
+        var graphHost = new ActionGraphHost();
+        graphHost.SetData(
+            Resources.Load<ActionGraph.ActionGraph>("HelloGraph"), 
+            playerEntity);
+        
+        playerEntity.AddActionComp(new List<ActionGraphHost>
+        {
+            graphHost
+        });
 
         return playerEntity;
     }

@@ -19,6 +19,8 @@ public class GameSystems : Feature
 
         Add(new FireSystem(contexts));
 
+        Add(new ActionSystem(contexts));
+
         Add(new AddViewSystem(contexts));
 
         Add(new LifetimeSystem(contexts));

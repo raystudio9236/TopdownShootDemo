@@ -8,29 +8,31 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int BulletTag = 0;
-    public const int CloseDestroyComp = 1;
-    public const int CoinTag = 2;
-    public const int CreateGameObjCmdComp = 3;
-    public const int DestroyFlag = 4;
-    public const int DestroyFlagListener = 5;
-    public const int EnemyTag = 6;
-    public const int FireCmdComp = 7;
-    public const int IdComp = 8;
-    public const int LifetimeComp = 9;
-    public const int PhysicsTag = 10;
-    public const int PlayerTag = 11;
-    public const int PosComp = 12;
-    public const int RotComp = 13;
-    public const int StatsComp = 14;
-    public const int TargetComp = 15;
-    public const int TimerComp = 16;
-    public const int VelComp = 17;
-    public const int ViewComp = 18;
+    public const int ActionComp = 0;
+    public const int BulletTag = 1;
+    public const int CloseDestroyComp = 2;
+    public const int CoinTag = 3;
+    public const int CreateGameObjCmdComp = 4;
+    public const int DestroyFlag = 5;
+    public const int DestroyFlagListener = 6;
+    public const int EnemyTag = 7;
+    public const int FireCmdComp = 8;
+    public const int IdComp = 9;
+    public const int LifetimeComp = 10;
+    public const int PhysicsTag = 11;
+    public const int PlayerTag = 12;
+    public const int PosComp = 13;
+    public const int RotComp = 14;
+    public const int StatsComp = 15;
+    public const int TargetComp = 16;
+    public const int TimerComp = 17;
+    public const int VelComp = 18;
+    public const int ViewComp = 19;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
+        "ActionComp",
         "BulletTag",
         "CloseDestroyComp",
         "CoinTag",
@@ -53,6 +55,7 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ActionComp),
         typeof(BulletTag),
         typeof(CloseDestroyComp),
         typeof(CoinTag),
