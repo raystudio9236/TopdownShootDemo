@@ -25,7 +25,6 @@ public class EnemySpawnSystem : IExecuteSystem
             
             var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts, 
                 new Vector2(x, y), 
-                Vector2.zero,
                 0f);
 
             var playerEntity = _contexts.game.playerTagEntity;

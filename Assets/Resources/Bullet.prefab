@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1190b5e18f24e0bbd0c1e9419b31258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actorTag: 1
   _rigidbody: {fileID: 3011090314020804587}
 --- !u!50 &3011090314020804587
 Rigidbody2D:

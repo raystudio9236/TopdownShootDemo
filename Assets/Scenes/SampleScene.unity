@@ -475,11 +475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorTagPathDic:
-    m_keys: 000000000100000002000000
+    m_keys: 00000000010000000200000003000000
     m_values:
     - Player
     - Bullet
     - Enemy
+    - Coin
 --- !u!1 &2052488158
 GameObject:
   m_ObjectHideFlags: 0

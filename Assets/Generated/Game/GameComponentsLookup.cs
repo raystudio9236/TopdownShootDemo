@@ -8,27 +8,34 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int BulletTag = 0;
-    public const int CreateGameObjCmdComp = 1;
-    public const int DestroyFlag = 2;
-    public const int DestroyFlagListener = 3;
-    public const int EnemyTag = 4;
-    public const int FireCmdComp = 5;
-    public const int IdComp = 6;
-    public const int LifetimeComp = 7;
-    public const int PhysicsTag = 8;
-    public const int PlayerTag = 9;
-    public const int PosComp = 10;
-    public const int RotComp = 11;
-    public const int TargetComp = 12;
-    public const int TimerComp = 13;
-    public const int VelComp = 14;
-    public const int ViewComp = 15;
+    public const int ActionComp = 0;
+    public const int BulletTag = 1;
+    public const int CloseDestroyComp = 2;
+    public const int CoinTag = 3;
+    public const int CreateGameObjCmdComp = 4;
+    public const int DestroyFlag = 5;
+    public const int DestroyFlagListener = 6;
+    public const int EnemyTag = 7;
+    public const int FireCmdComp = 8;
+    public const int IdComp = 9;
+    public const int LifetimeComp = 10;
+    public const int PhysicsTag = 11;
+    public const int PlayerTag = 12;
+    public const int PosComp = 13;
+    public const int RotComp = 14;
+    public const int StatsComp = 15;
+    public const int TargetComp = 16;
+    public const int TimerComp = 17;
+    public const int VelComp = 18;
+    public const int ViewComp = 19;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
+        "ActionComp",
         "BulletTag",
+        "CloseDestroyComp",
+        "CoinTag",
         "CreateGameObjCmdComp",
         "DestroyFlag",
         "DestroyFlagListener",
@@ -40,6 +47,7 @@ public static class GameComponentsLookup {
         "PlayerTag",
         "PosComp",
         "RotComp",
+        "StatsComp",
         "TargetComp",
         "TimerComp",
         "VelComp",
@@ -47,7 +55,10 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ActionComp),
         typeof(BulletTag),
+        typeof(CloseDestroyComp),
+        typeof(CoinTag),
         typeof(CreateGameObjCmdComp),
         typeof(DestroyFlag),
         typeof(DestroyFlagListenerComponent),
@@ -59,6 +70,7 @@ public static class GameComponentsLookup {
         typeof(PlayerTag),
         typeof(PosComp),
         typeof(RotComp),
+        typeof(StatsComp),
         typeof(TargetComp),
         typeof(TimerComp),
         typeof(VelComp),

@@ -40,10 +40,8 @@ public class FireSystem : ReactiveSystem<GameEntity>
 
             var playerView = (PlayerView) gameEntity.viewComp.View;
 
-            // todo，子弹飞行速度暂时设置为5
             EntityUtil.CreateBulletEntity(_contexts,
                 playerView.Shoot.position,
-                fireCmd.Angle.Angle2Vector2D() * 5,
                 fireCmd.Angle);
         }
     }

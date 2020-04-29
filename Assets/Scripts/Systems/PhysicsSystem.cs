@@ -26,6 +26,16 @@ public class PhysicsSystem : IExecuteSystem
                 {
                     sourceEntity.isDestroyFlag = true;
                     otherEntity.isDestroyFlag = true;
+                    
+                    EnemyUtil.CreateCoin(otherEntity);
+                }
+            }
+            else if (sourceEntity.isCoinTag)
+            {
+                if (otherEntity.isPlayerTag)
+                {
+                    if (!sourceEntity.hasTargetComp)
+                        sourceEntity.AddTargetComp(otherEntity.idComp.Value);
                 }
             }
         }
