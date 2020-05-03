@@ -1,4 +1,6 @@
-namespace ActionGraph.CustomNode
+using Actions.Core;
+
+namespace Actions.CustomNode
 {
     public class EntryNode : ActionNode
     {

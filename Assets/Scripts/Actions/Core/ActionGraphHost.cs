@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ActionGraph
+namespace Actions.Core
 {
     /// <summary>
     /// 图状态
@@ -29,6 +29,12 @@ namespace ActionGraph
         {
             Graph = graph;
             Entity = entity;
+            
+            if (graph.UpdateNode != null)
+            {
+                _executeNodeList.Add(graph.UpdateNode);
+                _executeNodeSet.Add(graph.UpdateNode);
+            }
 
             if (graph.EntryNode != null)
             {

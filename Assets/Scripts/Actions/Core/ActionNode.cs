@@ -1,7 +1,7 @@
 using UnityEngine;
 using XNode;
 
-namespace ActionGraph
+namespace Actions.Core
 {
     public class ActionNode : Node
     {

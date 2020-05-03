@@ -1,6 +1,7 @@
+using Actions.Core;
 using UnityEngine;
 
-namespace ActionGraph.CustomNode
+namespace Actions.CustomNode
 {
     public class LogNode : ActionNode
     {

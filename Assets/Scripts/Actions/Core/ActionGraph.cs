@@ -1,7 +1,7 @@
 using UnityEngine;
 using XNode;
 
-namespace ActionGraph
+namespace Actions.Core
 {
     [CreateAssetMenu(fileName = "New Action Graph",
         menuName = "Action/ActionGraph")]
@@ -12,5 +12,6 @@ namespace ActionGraph
         public GameEntity Entity => Host.Entity;
         
         public ActionNode EntryNode; // 入口节点
+        public ActionNode UpdateNode; // 每帧进行更新
     }
 }

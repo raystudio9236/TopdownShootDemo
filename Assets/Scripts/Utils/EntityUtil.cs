@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ActionGraph;
+using Actions.Core;
 using UnityEngine;
 
 public static class EntityUtil
@@ -27,7 +27,7 @@ public static class EntityUtil
         
         var graphHost = new ActionGraphHost();
         graphHost.SetData(
-            Resources.Load<ActionGraph.ActionGraph>("HelloGraph"), 
+            Resources.Load<Actions.Core.ActionGraph>("HelloGraph"), 
             playerEntity);
         
         playerEntity.AddActionComp(new List<ActionGraphHost>
