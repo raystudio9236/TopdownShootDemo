@@ -25,3 +25,10 @@ public struct CollisionInfo
     public int SourceId;
     public int OtherId;
 }
+
+[Serializable]
+public enum PlayerInput
+{
+    MainButton,
+    SecondaryButton,
+}

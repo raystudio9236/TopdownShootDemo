@@ -3,6 +3,7 @@ using XNode;
 
 namespace Actions.Core
 {
+    [NodeHideInCreateMenu]
     public class ActionNode : Node
     {
         protected ActionGraph parent => graph as ActionGraph;

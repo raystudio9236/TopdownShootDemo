@@ -1,16 +1,16 @@
 using Actions.Core;
 
-namespace Actions.CustomNode
+namespace Actions.CustomNode.Basic
 {
-    public class UpdateNode : ActionNode
+    public class EntryNode : ActionNode
     {
         [Output] public byte Out;
 
         protected override bool OnExecute()
         {
             ExitNode("Out");
-
-            return false;
+            
+            return true;
         }
     }
 }
