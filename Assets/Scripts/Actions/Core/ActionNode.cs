@@ -1,8 +1,9 @@
 using UnityEngine;
 using XNode;
 
-namespace ActionGraph
+namespace Actions.Core
 {
+    [NodeHideInCreateMenu]
     public class ActionNode : Node
     {
         protected ActionGraph parent => graph as ActionGraph;

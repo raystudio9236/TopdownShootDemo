@@ -7,6 +7,7 @@ public enum ActorTag
     Bullet,
     Enemy,
     Coin,
+    PlayerShadow,
 }
 
 [Serializable]
@@ -24,4 +25,19 @@ public struct CollisionInfo
 {
     public int SourceId;
     public int OtherId;
+}
+
+[Serializable]
+public enum PlayerInput
+{
+    MainButton,
+    SecondaryButton,
+}
+
+[Serializable]
+public enum PlayerInputType
+{
+    Keep,
+    Down,
+    Up,
 }

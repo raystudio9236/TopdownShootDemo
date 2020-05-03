@@ -77,8 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72642c8fc50f48f4b14219f4a62ccde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shoot: {fileID: 1829210631645631138}
+  actorTag: 0
   _rigidbody: {fileID: -825242264832528426}
+  _collider: {fileID: 2462291901545029301}
+  _shoot: {fileID: 1829210631645631138}
 --- !u!50 &-825242264832528426
 Rigidbody2D:
   serializedVersion: 4

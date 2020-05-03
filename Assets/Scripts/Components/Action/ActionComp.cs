@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ActionGraph;
+using Actions.Core;
 using Entitas;
 
 public sealed class ActionComp : IComponent

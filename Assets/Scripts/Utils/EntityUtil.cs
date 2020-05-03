@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ActionGraph;
+using Actions.Core;
 using UnityEngine;
 
 public static class EntityUtil
@@ -27,7 +27,7 @@ public static class EntityUtil
         
         var graphHost = new ActionGraphHost();
         graphHost.SetData(
-            Resources.Load<ActionGraph.ActionGraph>("HelloGraph"), 
+            Resources.Load<Actions.Core.ActionGraph>("HelloGraph"), 
             playerEntity);
         
         playerEntity.AddActionComp(new List<ActionGraphHost>
@@ -96,6 +96,23 @@ public static class EntityUtil
         coinEntity.AddLifetimeComp(3f);
 
         return coinEntity;
+    }
+    
+    public static GameEntity CreatePlayerShadowEntity(
+        Contexts contexts,
+        Vector2 pos,
+        float angle = 0)
+    {
+        var playerShadowEntity = contexts.game.CreateEntity();
+
+        playerShadowEntity.AddPosComp(pos);
+        playerShadowEntity.AddVelComp(Vector2.zero);
+        playerShadowEntity.AddRotComp(angle);
+        playerShadowEntity.AddCreateGameObjCmdComp(ActorTag.PlayerShadow);
+        
+        playerShadowEntity.AddLifetimeComp(0.2f);
+
+        return playerShadowEntity;
     }
 
     private static GameEntity AddStats(GameEntity gameEntity,

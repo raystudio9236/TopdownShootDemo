@@ -102,6 +102,11 @@ namespace XNodeEditor {
             return w;
         }
 
+        public void Maximize()
+        {
+            maximized = !maximized;
+        }
+
         public void Save() {
             if (AssetDatabase.Contains(graph)) {
                 EditorUtility.SetDirty(graph);
