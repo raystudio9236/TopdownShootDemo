@@ -7,6 +7,7 @@ public enum ActorTag
     Bullet,
     Enemy,
     Coin,
+    PlayerShadow,
 }
 
 [Serializable]
@@ -31,4 +32,12 @@ public enum PlayerInput
 {
     MainButton,
     SecondaryButton,
+}
+
+[Serializable]
+public enum PlayerInputType
+{
+    Keep,
+    Down,
+    Up,
 }

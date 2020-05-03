@@ -15,7 +15,7 @@ namespace Actions.Core
     {
         public ActionGraphHost Host; // 宿主
 
-        public GameEntity Entity => Host.Entity;
+        public GameEntity Entity => Host?.Entity;
         
         public ActionNode EntryNode; // 入口节点
         public ActionNode UpdateNode; // 每帧进行更新

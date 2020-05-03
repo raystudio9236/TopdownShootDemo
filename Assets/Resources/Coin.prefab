@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorTag: 3
   _rigidbody: {fileID: -3022370568864571896}
+  _collider: {fileID: 5091611373225372866}
 --- !u!50 &-3022370568864571896
 Rigidbody2D:
   serializedVersion: 4

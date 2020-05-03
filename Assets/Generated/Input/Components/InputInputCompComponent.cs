@@ -12,22 +12,22 @@ public partial class InputContext {
     public InputComp inputComp { get { return inputCompEntity.inputComp; } }
     public bool hasInputComp { get { return inputCompEntity != null; } }
 
-    public InputEntity SetInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newSecondaryButton) {
+    public InputEntity SetInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newMainButtonDown, bool newSecondaryButton, bool newSecondaryButtonDown) {
         if (hasInputComp) {
             throw new Entitas.EntitasException("Could not set InputComp!\n" + this + " already has an entity with InputComp!",
                 "You should check if the context already has a inputCompEntity before setting it or use context.ReplaceInputComp().");
         }
         var entity = CreateEntity();
-        entity.AddInputComp(newDir, newMousePos, newMainButton, newSecondaryButton);
+        entity.AddInputComp(newDir, newMousePos, newMainButton, newMainButtonDown, newSecondaryButton, newSecondaryButtonDown);
         return entity;
     }
 
-    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newSecondaryButton) {
+    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newMainButtonDown, bool newSecondaryButton, bool newSecondaryButtonDown) {
         var entity = inputCompEntity;
         if (entity == null) {
-            entity = SetInputComp(newDir, newMousePos, newMainButton, newSecondaryButton);
+            entity = SetInputComp(newDir, newMousePos, newMainButton, newMainButtonDown, newSecondaryButton, newSecondaryButtonDown);
         } else {
-            entity.ReplaceInputComp(newDir, newMousePos, newMainButton, newSecondaryButton);
+            entity.ReplaceInputComp(newDir, newMousePos, newMainButton, newMainButtonDown, newSecondaryButton, newSecondaryButtonDown);
         }
     }
 
@@ -49,23 +49,27 @@ public partial class InputEntity {
     public InputComp inputComp { get { return (InputComp)GetComponent(InputComponentsLookup.InputComp); } }
     public bool hasInputComp { get { return HasComponent(InputComponentsLookup.InputComp); } }
 
-    public void AddInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newSecondaryButton) {
+    public void AddInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newMainButtonDown, bool newSecondaryButton, bool newSecondaryButtonDown) {
         var index = InputComponentsLookup.InputComp;
         var component = (InputComp)CreateComponent(index, typeof(InputComp));
         component.Dir = newDir;
         component.MousePos = newMousePos;
         component.MainButton = newMainButton;
+        component.MainButtonDown = newMainButtonDown;
         component.SecondaryButton = newSecondaryButton;
+        component.SecondaryButtonDown = newSecondaryButtonDown;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newSecondaryButton) {
+    public void ReplaceInputComp(UnityEngine.Vector2 newDir, UnityEngine.Vector2 newMousePos, bool newMainButton, bool newMainButtonDown, bool newSecondaryButton, bool newSecondaryButtonDown) {
         var index = InputComponentsLookup.InputComp;
         var component = (InputComp)CreateComponent(index, typeof(InputComp));
         component.Dir = newDir;
         component.MousePos = newMousePos;
         component.MainButton = newMainButton;
+        component.MainButtonDown = newMainButtonDown;
         component.SecondaryButton = newSecondaryButton;
+        component.SecondaryButtonDown = newSecondaryButtonDown;
         ReplaceComponent(index, component);
     }
 

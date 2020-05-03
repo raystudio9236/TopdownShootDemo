@@ -97,6 +97,23 @@ public static class EntityUtil
 
         return coinEntity;
     }
+    
+    public static GameEntity CreatePlayerShadowEntity(
+        Contexts contexts,
+        Vector2 pos,
+        float angle = 0)
+    {
+        var playerShadowEntity = contexts.game.CreateEntity();
+
+        playerShadowEntity.AddPosComp(pos);
+        playerShadowEntity.AddVelComp(Vector2.zero);
+        playerShadowEntity.AddRotComp(angle);
+        playerShadowEntity.AddCreateGameObjCmdComp(ActorTag.PlayerShadow);
+        
+        playerShadowEntity.AddLifetimeComp(0.2f);
+
+        return playerShadowEntity;
+    }
 
     private static GameEntity AddStats(GameEntity gameEntity,
         float velocity = 0f)

@@ -19,6 +19,8 @@ public class InputSystem : IExecuteSystem
         ),
             Input.mousePosition,
             Input.GetMouseButton(0),
-            Input.GetMouseButton(1));
+            Input.GetMouseButtonDown(0),
+            Input.GetMouseButton(1),
+            Input.GetMouseButtonDown(1));
     }
 }
