@@ -262,8 +262,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b15cbc8fcaa243de8e527985d9424567, type: 3}
-  m_Name: HelloGraph
+  m_Name: Dash
   m_EditorClassIdentifier: 
+  NewName: 
   nodes:
   - {fileID: -4058795162211330197}
   - {fileID: -1802127861467621277}

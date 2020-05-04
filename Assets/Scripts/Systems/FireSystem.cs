@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
+using Utils;
 
 public class FireSystem : ReactiveSystem<GameEntity>
 {

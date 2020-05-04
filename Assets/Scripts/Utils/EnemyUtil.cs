@@ -1,20 +1,24 @@
+using Manager;
 using UnityEngine;
 
-public static class EnemyUtil
+namespace Utils
 {
-    public static void CreateCoin(GameEntity entity)
+    public static class EnemyUtil
     {
-        int count = Random.Range(3, 5);
-        var pos = entity.posComp.Value;
-
-        for (var i = 0; i < count; i++)
+        public static void CreateCoin(GameEntity entity)
         {
-            var x = Random.Range(-1f, 1f);
-            var y = Random.Range(-1f, 1f);
+            int count = Random.Range(3, 5);
+            var pos = entity.posComp.Value;
 
-            EntityUtil.CreateCoinEntity(GameManager.Contexts,
-                pos + new Vector2(x, y),
-                0f);
+            for (var i = 0; i < count; i++)
+            {
+                var x = Random.Range(-1f, 1f);
+                var y = Random.Range(-1f, 1f);
+
+                EntityUtil.CreateCoinEntity(GameManager.Contexts,
+                    pos + new Vector2(x, y),
+                    0f);
+            }
         }
     }
 }

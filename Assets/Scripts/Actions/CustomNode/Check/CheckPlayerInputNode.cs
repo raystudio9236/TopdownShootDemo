@@ -1,4 +1,5 @@
 ﻿using Actions.Core;
+using Manager;
 
 namespace Actions.CustomNode.Check
 {
