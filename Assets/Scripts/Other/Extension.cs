@@ -14,6 +14,11 @@ public static class Extension
     {
         return Vector2.SignedAngle(Vector2.up, dir);
     }
+    
+    public static float Vector2Angle2D(this Vector3 dir)
+    {
+        return Vector2.SignedAngle(Vector2.up, dir);
+    }
 }
 
 public static class ContextsIdExtensions

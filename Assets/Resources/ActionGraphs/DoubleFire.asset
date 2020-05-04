@@ -147,6 +147,7 @@ MonoBehaviour:
     - Angle
     - In
     - Out
+    - Count
     values:
     - _fieldName: Angle
       _node: {fileID: 1684871641906809184}
@@ -181,9 +182,19 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: Count
+      _node: {fileID: 1684871641906809184}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   In: 0
   Out: 0
   Angle: 0
+  Count: 10
 --- !u!114 &2516754166852986544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +294,7 @@ MonoBehaviour:
     - Angle
     - In
     - Out
+    - Count
     values:
     - _fieldName: Angle
       _node: {fileID: 4259034927701395629}
@@ -320,9 +332,19 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: Count
+      _node: {fileID: 4259034927701395629}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   In: 0
   Out: 0
   Angle: 0
+  Count: 3
 --- !u!114 &8771547203515505078
 MonoBehaviour:
   m_ObjectHideFlags: 0

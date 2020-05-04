@@ -119,11 +119,15 @@ namespace Utils
 
         private static GameEntity AddStats(this GameEntity gameEntity,
             float velocity = 0f,
-            float attackSpeed = 1f)
+            float attackSpeed = 1f,
+            float bulletCount = 1f,
+            float bulletSpace = 0.2f)
         {
             var stats = new float[VarFlag.All.ToIdx()];
             stats[VarFlag.Velocity.ToIdx()] = velocity;
             stats[VarFlag.AttackSpeed.ToIdx()] = attackSpeed;
+            stats[VarFlag.BulletCount.ToIdx()] = bulletCount;
+            stats[VarFlag.BulletSpace.ToIdx()] = bulletSpace;
             gameEntity.AddStatsComp(stats);
 
             return gameEntity;
