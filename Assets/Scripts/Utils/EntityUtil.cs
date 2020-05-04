@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Actions.Core;
+using Item;
 using Manager;
 using Other;
 using UnityEngine;
@@ -33,6 +34,8 @@ namespace Utils
             {
                 ActionManager.Instance.GetGraph(ActionTag.Dash, playerEntity)
             });
+            
+            playerEntity.AddItemComp(new List<ItemData>());
 
             return playerEntity;
         }
