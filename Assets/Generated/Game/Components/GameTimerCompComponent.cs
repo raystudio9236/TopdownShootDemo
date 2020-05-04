@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Base;
+
 public partial class GameEntity {
 
     public TimerComp timerComp { get { return (TimerComp)GetComponent(GameComponentsLookup.TimerComp); } }

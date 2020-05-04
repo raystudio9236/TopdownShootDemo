@@ -1,6 +1,9 @@
 using Entitas;
 
-public sealed class RotComp : IComponent
+namespace Components.Transform
 {
-    public float Angle;
+    public sealed class RotComp : IComponent
+    {
+        public float Angle;
+    }
 }

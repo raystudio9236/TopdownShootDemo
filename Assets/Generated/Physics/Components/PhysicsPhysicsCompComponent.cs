@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Physics;
+
 public partial class PhysicsContext {
 
     public PhysicsEntity physicsCompEntity { get { return GetGroup(PhysicsMatcher.PhysicsComp).GetSingleEntity(); } }

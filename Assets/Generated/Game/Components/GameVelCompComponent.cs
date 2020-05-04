@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Transform;
+
 public partial class GameEntity {
 
     public VelComp velComp { get { return (VelComp)GetComponent(GameComponentsLookup.VelComp); } }

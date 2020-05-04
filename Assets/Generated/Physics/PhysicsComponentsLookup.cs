@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Physics;
+
 public static class PhysicsComponentsLookup {
 
     public const int PhysicsComp = 0;

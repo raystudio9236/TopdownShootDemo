@@ -1,6 +1,9 @@
 using Entitas;
 
-public sealed class ViewComp : IComponent
+namespace Components.Base
 {
-    public View View;
+    public sealed class ViewComp : IComponent
+    {
+        public View View;
+    }
 }

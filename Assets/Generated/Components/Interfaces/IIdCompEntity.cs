@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Base;
+
 public partial interface IIdCompEntity {
 
     IdComp idComp { get; }

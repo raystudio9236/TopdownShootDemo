@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Transform;
+
 public partial class GameEntity {
 
     public PosComp posComp { get { return (PosComp)GetComponent(GameComponentsLookup.PosComp); } }

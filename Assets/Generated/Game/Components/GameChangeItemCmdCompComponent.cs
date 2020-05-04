@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Item;
+
 public partial class GameEntity {
 
     public ChangeItemCmdComp changeItemCmdComp { get { return (ChangeItemCmdComp)GetComponent(GameComponentsLookup.ChangeItemCmdComp); } }

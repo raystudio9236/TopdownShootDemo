@@ -1,4 +1,10 @@
+using Systems.Action;
+using Systems.Base;
+using Systems.Fire;
+using Systems.Input;
 using Systems.Item;
+using Systems.Spawn;
+using Systems.Target;
 
 namespace Manager
 {
@@ -30,10 +36,10 @@ namespace Manager
             Add(new LifetimeSystem(contexts));
             Add(new SyncPosSystem(contexts));
 
-            Add(new PhysicsSystem(contexts));
-
             Add(new CloseDestroySystem(contexts));
             Add(new ChangeItemSystem(contexts));
+
+            Add(new PhysicsSystem(contexts));
 
             Add(new GameEventSystems(contexts));
 

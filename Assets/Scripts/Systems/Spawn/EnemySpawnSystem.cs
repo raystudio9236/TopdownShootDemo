@@ -2,34 +2,37 @@ using Entitas;
 using UnityEngine;
 using Utils;
 
-public class EnemySpawnSystem : IExecuteSystem
+namespace Systems.Spawn
 {
-    private readonly Contexts _contexts;
-    private float _timer = 0f;
-
-    public EnemySpawnSystem(Contexts contexts)
+    public class EnemySpawnSystem : IExecuteSystem
     {
-        _contexts = contexts;
-    }
+        private readonly Contexts _contexts;
+        private float _timer = 0f;
 
-    public void Execute()
-    {
-        var dt = Time.deltaTime;
-        _timer += dt;
-
-        if (_timer >= 1f)
+        public EnemySpawnSystem(Contexts contexts)
         {
-            _timer = 0f;
+            _contexts = contexts;
+        }
 
-            var x = Random.Range(-9f, 9f);
-            var y = Random.Range(-5f, 5f);
+        public void Execute()
+        {
+            var dt = Time.deltaTime;
+            _timer += dt;
+
+            if (_timer >= 1f)
+            {
+                _timer = 0f;
+
+                var x = Random.Range(-9f, 9f);
+                var y = Random.Range(-5f, 5f);
             
-            var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts, 
-                new Vector2(x, y), 
-                0f);
+                var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts, 
+                    new Vector2(x, y), 
+                    0f);
 
-            var playerEntity = _contexts.game.playerTagEntity;
-            enemyEntity.AddTargetComp(playerEntity.idComp.Value);
+                var playerEntity = _contexts.game.playerTagEntity;
+                enemyEntity.AddTargetComp(playerEntity.idComp.Value);
+            }
         }
     }
 }

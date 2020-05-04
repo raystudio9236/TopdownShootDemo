@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Fire;
+
 public partial class GameEntity {
 
     public FireCmdComp fireCmdComp { get { return (FireCmdComp)GetComponent(GameComponentsLookup.FireCmdComp); } }

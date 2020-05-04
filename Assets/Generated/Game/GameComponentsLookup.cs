@@ -6,6 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Action;
+using Components.Base;
+using Components.Fire;
+using Components.Item;
+using Components.Stat;
+using Components.Tag;
+using Components.Target;
+using Components.Transform;
+
 public static class GameComponentsLookup {
 
     public const int ActionComp = 0;

@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Tag;
+
 public partial class GameContext {
 
     public GameEntity playerTagEntity { get { return GetGroup(GameMatcher.PlayerTag).GetSingleEntity(); } }

@@ -1,5 +1,6 @@
 using Actions.Core;
 using Actions.CustomNode.Basic;
+using Components.Base;
 
 namespace Actions.CustomNode.Check
 {

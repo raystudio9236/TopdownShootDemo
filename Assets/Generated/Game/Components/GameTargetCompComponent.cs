@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Target;
+
 public partial class GameEntity {
 
     public TargetComp targetComp { get { return (TargetComp)GetComponent(GameComponentsLookup.TargetComp); } }

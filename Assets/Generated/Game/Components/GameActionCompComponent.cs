@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Action;
+
 public partial class GameEntity {
 
     public ActionComp actionComp { get { return (ActionComp)GetComponent(GameComponentsLookup.ActionComp); } }

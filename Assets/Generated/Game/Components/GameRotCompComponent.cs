@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Transform;
+
 public partial class GameEntity {
 
     public RotComp rotComp { get { return (RotComp)GetComponent(GameComponentsLookup.RotComp); } }

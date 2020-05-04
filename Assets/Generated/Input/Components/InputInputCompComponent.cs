@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Input;
+
 public partial class InputContext {
 
     public InputEntity inputCompEntity { get { return GetGroup(InputMatcher.InputComp).GetSingleEntity(); } }

@@ -1,5 +1,8 @@
 using Entitas;
 
-public sealed class PhysicsTag : IComponent
+namespace Components.Tag
 {
+    public sealed class PhysicsTag : IComponent
+    {
+    }
 }

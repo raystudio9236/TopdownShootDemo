@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using Components.Item;
 using Entitas;
-using Item;
 using Manager;
 
 namespace Systems.Item

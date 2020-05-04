@@ -1,4 +1,5 @@
 using Actions.Core;
+using Components.Stat;
 using XNode;
 
 namespace Actions.CustomNode.Entity

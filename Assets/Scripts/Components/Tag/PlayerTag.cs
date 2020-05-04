@@ -1,7 +1,10 @@
 ﻿using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-[Unique]
-public sealed class PlayerTag : IComponent
+namespace Components.Tag
 {
+    [Unique]
+    public sealed class PlayerTag : IComponent
+    {
+    }
 }

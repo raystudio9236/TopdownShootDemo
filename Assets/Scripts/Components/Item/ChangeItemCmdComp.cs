@@ -2,39 +2,42 @@ using System;
 using System.Collections.Generic;
 using Entitas;
 
-[Serializable]
-public enum ChangeItemType
+namespace Components.Item
 {
-    Add,
-    Remove,
-}
-
-[Serializable]
-public struct ChangeItemPair
-{
-    public ChangeItemType Type;
-    public string ItemName;
-}
-
-public sealed class ChangeItemCmdComp : IComponent
-{
-    public List<ChangeItemPair> ChangeItemList;
-    public bool Dirty;
-}
-
-public static class ChangeItemCmdCompEx
-{
-    public static void ChangeItem(this GameEntity entity,
-        ChangeItemPair changeItemPair)
+    [Serializable]
+    public enum ChangeItemType
     {
-        if (!entity.hasChangeItemCmdComp)
-        {
-            entity.AddChangeItemCmdComp(new List<ChangeItemPair>(),
-                false);
-        }
+        Add,
+        Remove,
+    }
 
-        var list = entity.changeItemCmdComp.ChangeItemList;
-        list.Add(changeItemPair);
-        entity.ReplaceChangeItemCmdComp(list, true);
+    [Serializable]
+    public struct ChangeItemPair
+    {
+        public ChangeItemType Type;
+        public string ItemName;
+    }
+
+    public sealed class ChangeItemCmdComp : IComponent
+    {
+        public List<ChangeItemPair> ChangeItemList;
+        public bool Dirty;
+    }
+
+    public static class ChangeItemCmdCompEx
+    {
+        public static void ChangeItem(this GameEntity entity,
+            ChangeItemPair changeItemPair)
+        {
+            if (!entity.hasChangeItemCmdComp)
+            {
+                entity.AddChangeItemCmdComp(new List<ChangeItemPair>(),
+                    false);
+            }
+
+            var list = entity.changeItemCmdComp.ChangeItemList;
+            list.Add(changeItemPair);
+            entity.ReplaceChangeItemCmdComp(list, true);
+        }
     }
 }

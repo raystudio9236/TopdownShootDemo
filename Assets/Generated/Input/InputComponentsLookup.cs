@@ -6,6 +6,10 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Base;
+using Components.Input;
+
 public static class InputComponentsLookup {
 
     public const int IdComp = 0;

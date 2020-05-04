@@ -1,16 +1,19 @@
 ﻿using Entitas;
 
-public class InputCleanupSystem : ICleanupSystem
+namespace Systems.Input
 {
-    private readonly Contexts _contexts;
-
-    public InputCleanupSystem(Contexts contexts)
+    public class InputCleanupSystem : ICleanupSystem
     {
-        _contexts = contexts;
-    }
+        private readonly Contexts _contexts;
 
-    public void Cleanup()
-    {
-        _contexts.input.DestroyAllEntities();
+        public InputCleanupSystem(Contexts contexts)
+        {
+            _contexts = contexts;
+        }
+
+        public void Cleanup()
+        {
+            _contexts.input.DestroyAllEntities();
+        }
     }
 }

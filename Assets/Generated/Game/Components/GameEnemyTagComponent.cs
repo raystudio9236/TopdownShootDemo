@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Components.Tag;
+
 public partial class GameEntity {
 
     static readonly EnemyTag enemyTagComponent = new EnemyTag();

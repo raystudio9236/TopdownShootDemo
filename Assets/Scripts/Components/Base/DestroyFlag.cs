@@ -1,7 +1,10 @@
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
-[Event(EventTarget.Self)]
-public sealed class DestroyFlag : IComponent
+namespace Components.Base
 {
+    [Event(EventTarget.Self)]
+    public sealed class DestroyFlag : IComponent
+    {
+    }
 }
