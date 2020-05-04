@@ -30,12 +30,10 @@ namespace Utils
 
             playerEntity.AddTimer();
 
-            playerEntity.AddActionComp(new List<ActionGraphHost>
-            {
-                ActionManager.Instance.GetGraph(ActionTag.Dash, playerEntity)
-            });
-
+            playerEntity.AddActionComp(new List<ActionGraphHost>(3));
             playerEntity.AddItemComp(new List<ItemData>());
+
+            playerEntity.AddItem("NormalFire", "Dash");
 
             return playerEntity;
         }
@@ -136,6 +134,21 @@ namespace Utils
         private static GameEntity AddTimer(this GameEntity gameEntity)
         {
             gameEntity.AddTimerComp(new float[TimerFlag.All.ToIdx()]);
+            return gameEntity;
+        }
+
+        private static GameEntity AddItem(this GameEntity gameEntity,
+            params string[] itemNames)
+        {
+            foreach (var itemName in itemNames)
+            {
+                gameEntity.ChangeItem(new ChangeItemPair
+                {
+                    ItemName = itemName,
+                    Type = ChangeItemType.Add
+                });
+            }
+
             return gameEntity;
         }
     }

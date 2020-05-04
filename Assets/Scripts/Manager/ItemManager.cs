@@ -25,35 +25,6 @@ namespace Manager
             Instance = this;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                var player = GameManager.Contexts.game.playerTagEntity;
-                player.ChangeItem(new ChangeItemPair
-                {
-                    ItemName = "NormalFire",
-                    Type = ChangeItemType.Add
-                });
-            }
-            else if (Input.GetKeyDown(KeyCode.T))
-            {
-                var player = GameManager.Contexts.game.playerTagEntity;
-                player.ChangeItem(new ChangeItemPair
-                {
-                    ItemName = "DoubleFire",
-                    Type = ChangeItemType.Add
-                });
-                
-                player.ChangeItem(new ChangeItemPair
-                {
-                    ItemName = "NormalFire",
-                    Type = ChangeItemType.Remove
-                });
-
-            }
-        }
-
         public ItemData GetItem(string itemName)
         {
             if (!_itemDic.TryGetValue(itemName, out var itemData))

@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Item
 {
-    [CreateAssetMenu(fileName = "New Fire Item",
-        menuName = "Item/FireItem")]
-    public class FireItem : ItemData
+    [CreateAssetMenu(fileName = "New Graph Item",
+        menuName = "Item/AddGraphItem")]
+    public class AddGraphItem : ItemData
     {
         public string ActionGraphName;
 

@@ -5,6 +5,8 @@ namespace Manager
 {
     public class PoolManager : MonoBehaviour
     {
+        private const string PATH_PREFIX = "Actors";
+        
         public static PoolManager Instance;
 
         [SerializeField] private ActorTagPathDic ActorTagPathDic;
@@ -25,7 +27,7 @@ namespace Manager
             if (!_viewPrefabPools.TryGetValue(actorTag, out var pool))
             {
                 pool = new ViewPrefabPool();
-                pool.Prefab = Resources.Load<GameObject>(ActorTagPathDic[actorTag]);
+                pool.Prefab = Resources.Load<GameObject>($"{PATH_PREFIX}/{ActorTagPathDic[actorTag]}");
                 pool.SpawnRoot = new GameObject($"__SpawnRoot_{actorTag.ToString()}")
                     .transform;
                 pool.PoolRoot = new GameObject($"__PoolRoot_{actorTag.ToString()}")
