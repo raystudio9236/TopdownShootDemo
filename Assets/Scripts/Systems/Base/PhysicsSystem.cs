@@ -1,6 +1,7 @@
 using Components.Physics;
 using Components.Stat;
 using Entitas;
+using EZCameraShake;
 
 namespace Systems.Base
 {
@@ -35,6 +36,8 @@ namespace Systems.Base
                         sourceEntity.isDestroyFlag = true;
                         otherEntity.ChangeHp(
                             -sourceEntity.GetStat(StatFlag.Damage));
+
+                        CameraShaker.Instance.ShakeOnce(1.5f, 1.5f, 0.1f, 0.3f);
                     }
                 }
                 else if (sourceEntity.isCoinTag)
@@ -50,6 +53,8 @@ namespace Systems.Base
                 {
                     if (otherEntity.isPlayerTag)
                     {
+                        CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 0.3f);
+
                         otherEntity.ChangeHp(
                             -1);
                     }
