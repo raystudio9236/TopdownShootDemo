@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public interface IPhysicsView : IView
+namespace Hybrid.Base
 {
-    Rigidbody2D Rigidbody { get; }
-    Collider2D Collider { get; }
+    public interface IPhysicsView : IView
+    {
+        Rigidbody2D Rigidbody { get; }
+        Collider2D Collider { get; }
+    }
 }

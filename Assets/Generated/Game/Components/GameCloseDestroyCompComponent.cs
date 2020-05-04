@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    public CloseDestroyComp closeDestroyComp { get { return (CloseDestroyComp)GetComponent(GameComponentsLookup.CloseDestroyComp); } }
+    public Components.Base.CloseDestroyComp closeDestroyComp { get { return (Components.Base.CloseDestroyComp)GetComponent(GameComponentsLookup.CloseDestroyComp); } }
     public bool hasCloseDestroyComp { get { return HasComponent(GameComponentsLookup.CloseDestroyComp); } }
 
     public void AddCloseDestroyComp(float newDistance) {
         var index = GameComponentsLookup.CloseDestroyComp;
-        var component = (CloseDestroyComp)CreateComponent(index, typeof(CloseDestroyComp));
+        var component = (Components.Base.CloseDestroyComp)CreateComponent(index, typeof(Components.Base.CloseDestroyComp));
         component.Distance = newDistance;
         AddComponent(index, component);
     }
 
     public void ReplaceCloseDestroyComp(float newDistance) {
         var index = GameComponentsLookup.CloseDestroyComp;
-        var component = (CloseDestroyComp)CreateComponent(index, typeof(CloseDestroyComp));
+        var component = (Components.Base.CloseDestroyComp)CreateComponent(index, typeof(Components.Base.CloseDestroyComp));
         component.Distance = newDistance;
         ReplaceComponent(index, component);
     }

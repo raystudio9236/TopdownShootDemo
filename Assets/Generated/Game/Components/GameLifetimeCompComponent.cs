@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    public LifetimeComp lifetimeComp { get { return (LifetimeComp)GetComponent(GameComponentsLookup.LifetimeComp); } }
+    public Components.Base.LifetimeComp lifetimeComp { get { return (Components.Base.LifetimeComp)GetComponent(GameComponentsLookup.LifetimeComp); } }
     public bool hasLifetimeComp { get { return HasComponent(GameComponentsLookup.LifetimeComp); } }
 
     public void AddLifetimeComp(float newTime) {
         var index = GameComponentsLookup.LifetimeComp;
-        var component = (LifetimeComp)CreateComponent(index, typeof(LifetimeComp));
+        var component = (Components.Base.LifetimeComp)CreateComponent(index, typeof(Components.Base.LifetimeComp));
         component.Time = newTime;
         AddComponent(index, component);
     }
 
     public void ReplaceLifetimeComp(float newTime) {
         var index = GameComponentsLookup.LifetimeComp;
-        var component = (LifetimeComp)CreateComponent(index, typeof(LifetimeComp));
+        var component = (Components.Base.LifetimeComp)CreateComponent(index, typeof(Components.Base.LifetimeComp));
         component.Time = newTime;
         ReplaceComponent(index, component);
     }

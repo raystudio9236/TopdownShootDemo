@@ -6,25 +6,22 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Item;
-
 public partial class GameEntity {
 
-    public ChangeItemCmdComp changeItemCmdComp { get { return (ChangeItemCmdComp)GetComponent(GameComponentsLookup.ChangeItemCmdComp); } }
+    public Components.Item.ChangeItemCmdComp changeItemCmdComp { get { return (Components.Item.ChangeItemCmdComp)GetComponent(GameComponentsLookup.ChangeItemCmdComp); } }
     public bool hasChangeItemCmdComp { get { return HasComponent(GameComponentsLookup.ChangeItemCmdComp); } }
 
-    public void AddChangeItemCmdComp(System.Collections.Generic.List<ChangeItemPair> newChangeItemList, bool newDirty) {
+    public void AddChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList, bool newDirty) {
         var index = GameComponentsLookup.ChangeItemCmdComp;
-        var component = (ChangeItemCmdComp)CreateComponent(index, typeof(ChangeItemCmdComp));
+        var component = (Components.Item.ChangeItemCmdComp)CreateComponent(index, typeof(Components.Item.ChangeItemCmdComp));
         component.ChangeItemList = newChangeItemList;
         component.Dirty = newDirty;
         AddComponent(index, component);
     }
 
-    public void ReplaceChangeItemCmdComp(System.Collections.Generic.List<ChangeItemPair> newChangeItemList, bool newDirty) {
+    public void ReplaceChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList, bool newDirty) {
         var index = GameComponentsLookup.ChangeItemCmdComp;
-        var component = (ChangeItemCmdComp)CreateComponent(index, typeof(ChangeItemCmdComp));
+        var component = (Components.Item.ChangeItemCmdComp)CreateComponent(index, typeof(Components.Item.ChangeItemCmdComp));
         component.ChangeItemList = newChangeItemList;
         component.Dirty = newDirty;
         ReplaceComponent(index, component);

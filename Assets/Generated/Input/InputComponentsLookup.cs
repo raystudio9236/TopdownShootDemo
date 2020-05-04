@@ -6,10 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-using Components.Input;
-
 public static class InputComponentsLookup {
 
     public const int IdComp = 0;
@@ -23,7 +19,7 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(IdComp),
-        typeof(InputComp)
+        typeof(Components.Base.IdComp),
+        typeof(Components.Input.InputComp)
     };
 }

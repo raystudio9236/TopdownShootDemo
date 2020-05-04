@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Transform;
-
 public partial class GameEntity {
 
-    public VelComp velComp { get { return (VelComp)GetComponent(GameComponentsLookup.VelComp); } }
+    public Components.Transform.VelComp velComp { get { return (Components.Transform.VelComp)GetComponent(GameComponentsLookup.VelComp); } }
     public bool hasVelComp { get { return HasComponent(GameComponentsLookup.VelComp); } }
 
     public void AddVelComp(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.VelComp;
-        var component = (VelComp)CreateComponent(index, typeof(VelComp));
+        var component = (Components.Transform.VelComp)CreateComponent(index, typeof(Components.Transform.VelComp));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceVelComp(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.VelComp;
-        var component = (VelComp)CreateComponent(index, typeof(VelComp));
+        var component = (Components.Transform.VelComp)CreateComponent(index, typeof(Components.Transform.VelComp));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

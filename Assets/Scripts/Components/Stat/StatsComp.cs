@@ -14,6 +14,8 @@ namespace Components.Stat
 
         Hp, // 血量
         MaxHp, // 最大血量
+        
+        Damage, // 伤害
 
         All,
     }
@@ -39,6 +41,12 @@ namespace Components.Stat
         {
             gameEntity.statsComp.Vars[varFlag.ToIdx()] = value;
             return gameEntity;
+        }
+        
+        public static float GetStat(this GameEntity gameEntity,
+            VarFlag varFlag)
+        {
+            return gameEntity.statsComp.Vars[varFlag.ToIdx()];
         }
     }
 }

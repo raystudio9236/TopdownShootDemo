@@ -1,4 +1,5 @@
 using Components.Physics;
+using Components.Stat;
 using Entitas;
 using Utils;
 
@@ -33,9 +34,8 @@ namespace Systems.Base
                     if (otherEntity.isEnemyTag)
                     {
                         sourceEntity.isDestroyFlag = true;
-                        otherEntity.isDestroyFlag = true;
-
-                        EnemyUtil.CreateCoin(otherEntity);
+                        otherEntity.ChangeHp(
+                            -sourceEntity.GetStat(VarFlag.Damage));
                     }
                 }
                 else if (sourceEntity.isCoinTag)
@@ -43,7 +43,8 @@ namespace Systems.Base
                     if (otherEntity.isPlayerTag)
                     {
                         if (!sourceEntity.hasTargetComp)
-                            sourceEntity.AddTargetComp(otherEntity.idComp.Value);
+                            sourceEntity.AddTargetComp(otherEntity.idComp
+                                .Value);
                     }
                 }
             }

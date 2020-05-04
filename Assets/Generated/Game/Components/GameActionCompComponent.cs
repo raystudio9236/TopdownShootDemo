@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Action;
-
 public partial class GameEntity {
 
-    public ActionComp actionComp { get { return (ActionComp)GetComponent(GameComponentsLookup.ActionComp); } }
+    public Components.Action.ActionComp actionComp { get { return (Components.Action.ActionComp)GetComponent(GameComponentsLookup.ActionComp); } }
     public bool hasActionComp { get { return HasComponent(GameComponentsLookup.ActionComp); } }
 
     public void AddActionComp(System.Collections.Generic.List<Actions.Core.ActionGraphHost> newActionGraphHostArr) {
         var index = GameComponentsLookup.ActionComp;
-        var component = (ActionComp)CreateComponent(index, typeof(ActionComp));
+        var component = (Components.Action.ActionComp)CreateComponent(index, typeof(Components.Action.ActionComp));
         component.ActionGraphHostArr = newActionGraphHostArr;
         AddComponent(index, component);
     }
 
     public void ReplaceActionComp(System.Collections.Generic.List<Actions.Core.ActionGraphHost> newActionGraphHostArr) {
         var index = GameComponentsLookup.ActionComp;
-        var component = (ActionComp)CreateComponent(index, typeof(ActionComp));
+        var component = (Components.Action.ActionComp)CreateComponent(index, typeof(Components.Action.ActionComp));
         component.ActionGraphHostArr = newActionGraphHostArr;
         ReplaceComponent(index, component);
     }

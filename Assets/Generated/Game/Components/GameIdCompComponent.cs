@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    public IdComp idComp { get { return (IdComp)GetComponent(GameComponentsLookup.IdComp); } }
+    public Components.Base.IdComp idComp { get { return (Components.Base.IdComp)GetComponent(GameComponentsLookup.IdComp); } }
     public bool hasIdComp { get { return HasComponent(GameComponentsLookup.IdComp); } }
 
     public void AddIdComp(int newValue) {
         var index = GameComponentsLookup.IdComp;
-        var component = (IdComp)CreateComponent(index, typeof(IdComp));
+        var component = (Components.Base.IdComp)CreateComponent(index, typeof(Components.Base.IdComp));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceIdComp(int newValue) {
         var index = GameComponentsLookup.IdComp;
-        var component = (IdComp)CreateComponent(index, typeof(IdComp));
+        var component = (Components.Base.IdComp)CreateComponent(index, typeof(Components.Base.IdComp));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

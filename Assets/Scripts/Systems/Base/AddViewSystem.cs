@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using Hybrid.Base;
 using Manager;
 
 namespace Systems.Base

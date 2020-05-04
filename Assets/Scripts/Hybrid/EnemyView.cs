@@ -1,6 +1,14 @@
-﻿using Entitas.Unity;
-using UnityEngine;
+﻿using Hybrid.Base;
+using Utils;
 
-public class EnemyView : PhysicsView
+namespace Hybrid
 {
+    public class EnemyView : PhysicsView
+    {
+        protected override void OnDestroyEntityHandler()
+        {
+            EnemyUtil.CreateCoin(_selfEntity);
+            base.OnDestroyEntityHandler();
+        }
+    }
 }

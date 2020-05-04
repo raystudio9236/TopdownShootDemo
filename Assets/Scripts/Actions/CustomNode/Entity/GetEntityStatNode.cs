@@ -12,7 +12,7 @@ namespace Actions.CustomNode.Entity
         public override object GetValue(NodePort port)
         {
             if (port.fieldName == "Value")
-                return entity.statsComp.Vars[VarFlag.ToIdx()];
+                return entity.GetStat(VarFlag);
 
             return null;
         }

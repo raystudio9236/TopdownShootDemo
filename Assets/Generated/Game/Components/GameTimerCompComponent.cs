@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    public TimerComp timerComp { get { return (TimerComp)GetComponent(GameComponentsLookup.TimerComp); } }
+    public Components.Base.TimerComp timerComp { get { return (Components.Base.TimerComp)GetComponent(GameComponentsLookup.TimerComp); } }
     public bool hasTimerComp { get { return HasComponent(GameComponentsLookup.TimerComp); } }
 
     public void AddTimerComp(float[] newTimers) {
         var index = GameComponentsLookup.TimerComp;
-        var component = (TimerComp)CreateComponent(index, typeof(TimerComp));
+        var component = (Components.Base.TimerComp)CreateComponent(index, typeof(Components.Base.TimerComp));
         component.Timers = newTimers;
         AddComponent(index, component);
     }
 
     public void ReplaceTimerComp(float[] newTimers) {
         var index = GameComponentsLookup.TimerComp;
-        var component = (TimerComp)CreateComponent(index, typeof(TimerComp));
+        var component = (Components.Base.TimerComp)CreateComponent(index, typeof(Components.Base.TimerComp));
         component.Timers = newTimers;
         ReplaceComponent(index, component);
     }

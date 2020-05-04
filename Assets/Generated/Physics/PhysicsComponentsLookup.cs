@@ -6,9 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Physics;
-
 public static class PhysicsComponentsLookup {
 
     public const int PhysicsComp = 0;
@@ -20,6 +17,6 @@ public static class PhysicsComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(PhysicsComp)
+        typeof(Components.Physics.PhysicsComp)
     };
 }

@@ -1,4 +1,5 @@
 using System;
+using Hybrid.Base;
 using Utils;
 
 [Serializable]

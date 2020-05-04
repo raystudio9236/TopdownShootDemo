@@ -35,8 +35,7 @@ namespace Components.Base
                 switch (flag)
                 {
                     case TimerFlag.Fire:
-                        value = 1.0f / gameEntity.statsComp.Vars[
-                            VarFlag.AttackSpeed.ToIdx()];
+                        value = 1.0f / gameEntity.GetStat(VarFlag.AttackSpeed);
                         break;
 
                     default:

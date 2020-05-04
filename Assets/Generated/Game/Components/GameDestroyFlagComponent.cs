@@ -6,12 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    static readonly DestroyFlag destroyFlagComponent = new DestroyFlag();
+    static readonly Components.Base.DestroyFlag destroyFlagComponent = new Components.Base.DestroyFlag();
 
     public bool isDestroyFlag {
         get { return HasComponent(GameComponentsLookup.DestroyFlag); }

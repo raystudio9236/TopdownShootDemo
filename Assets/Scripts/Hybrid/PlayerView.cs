@@ -1,26 +1,29 @@
 using Cinemachine;
-using Entitas.Unity;
+using Hybrid.Base;
 using UnityEngine;
 
-public class PlayerView : PhysicsView
+namespace Hybrid
 {
-    [SerializeField] private Transform _shoot;
-
-    public Transform Shoot => _shoot;
-
-    protected override void OnLinkEntityHandler()
+    public class PlayerView : PhysicsView
     {
-        base.OnLinkEntityHandler();
+        [SerializeField] private Transform _shoot;
 
-        var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
-        playerFollowCinemachine.Follow = transform;
-    }
+        public Transform Shoot => _shoot;
 
-    protected override void OnDestroyEntityHandler()
-    {
-        base.OnDestroyEntityHandler();
+        protected override void OnLinkEntityHandler()
+        {
+            base.OnLinkEntityHandler();
 
-        var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
-        playerFollowCinemachine.Follow = null;
+            var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
+            playerFollowCinemachine.Follow = transform;
+        }
+
+        protected override void OnDestroyEntityHandler()
+        {
+            base.OnDestroyEntityHandler();
+
+            var playerFollowCinemachine = FindObjectOfType<CinemachineVirtualCamera>();
+            playerFollowCinemachine.Follow = null;
+        }
     }
 }

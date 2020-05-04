@@ -4,8 +4,6 @@ using Components.Base;
 using Components.Item;
 using Components.Stat;
 using Item;
-using Manager;
-using Other;
 using UnityEngine;
 
 namespace Utils
@@ -24,7 +22,14 @@ namespace Utils
             playerEntity.isPlayerTag = true;
             playerEntity.isPhysicsTag = true;
 
-            playerEntity.AddStats(8f);
+            playerEntity.AddStats(
+                velocity: 8f,
+                attackSpeed: 1.5f,
+                bulletCount: 1,
+                bulletSpace: 0.2f,
+                Hp: 100f,
+                maxHp: 100f,
+                damage: 50f);
 
             playerEntity.AddPosComp(pos);
             playerEntity.AddVelComp(Vector2.zero);
@@ -50,7 +55,14 @@ namespace Utils
             enemyEntity.isEnemyTag = true;
             enemyEntity.isPhysicsTag = true;
 
-            enemyEntity.AddStats(2f);
+            enemyEntity.AddStats(
+                velocity: 2f,
+                attackSpeed: 0.5f,
+                bulletCount: 1,
+                bulletSpace: 0.2f,
+                Hp: 50f,
+                maxHp: 50f,
+                damage: 30f);
 
             enemyEntity.AddPosComp(pos);
             enemyEntity.AddVelComp(Vector2.zero);
@@ -62,13 +74,21 @@ namespace Utils
 
         public static GameEntity CreateBulletEntity(Contexts contexts,
             Vector2 pos,
-            float angle = 0)
+            float angle = 0,
+            float damage = 50f)
         {
             var bulletEntity = contexts.game.CreateEntity();
             bulletEntity.isBulletTag = true;
             bulletEntity.isPhysicsTag = true;
 
-            bulletEntity.AddStats(12f);
+            bulletEntity.AddStats(
+                velocity: 15f,
+                // attackSpeed: 0.5f,
+                // bulletCount: 1,
+                // bulletSpace: 0.2f,
+                // Hp: 50f,
+                // maxHp: 50f,
+                damage: damage);
 
             bulletEntity.AddPosComp(pos);
             bulletEntity.AddVelComp(angle.Angle2Vector2D() * 12f);
@@ -122,13 +142,19 @@ namespace Utils
             float velocity = 0f,
             float attackSpeed = 1f,
             float bulletCount = 1f,
-            float bulletSpace = 0.2f)
+            float bulletSpace = 0.2f,
+            float Hp = 1f,
+            float maxHp = 1f,
+            float damage = 0f)
         {
             var stats = new float[VarFlag.All.ToIdx()];
             stats[VarFlag.Velocity.ToIdx()] = velocity;
             stats[VarFlag.AttackSpeed.ToIdx()] = attackSpeed;
             stats[VarFlag.BulletCount.ToIdx()] = bulletCount;
             stats[VarFlag.BulletSpace.ToIdx()] = bulletSpace;
+            stats[VarFlag.Hp.ToIdx()] = Hp;
+            stats[VarFlag.MaxHp.ToIdx()] = maxHp;
+            stats[VarFlag.Damage.ToIdx()] = damage;
             gameEntity.AddStatsComp(stats);
 
             return gameEntity;

@@ -6,90 +6,83 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Action;
-using Components.Base;
-using Components.Fire;
-using Components.Item;
-using Components.Stat;
-using Components.Tag;
-using Components.Target;
-using Components.Transform;
-
 public static class GameComponentsLookup {
 
     public const int ActionComp = 0;
-    public const int BulletTag = 1;
-    public const int ChangeItemCmdComp = 2;
-    public const int CloseDestroyComp = 3;
-    public const int CoinTag = 4;
-    public const int CreateGameObjCmdComp = 5;
-    public const int DestroyFlag = 6;
-    public const int DestroyFlagListener = 7;
-    public const int EnemyTag = 8;
-    public const int FireCmdComp = 9;
-    public const int IdComp = 10;
-    public const int ItemComp = 11;
-    public const int LifetimeComp = 12;
-    public const int PhysicsTag = 13;
-    public const int PlayerTag = 14;
-    public const int PosComp = 15;
-    public const int RotComp = 16;
-    public const int StatsComp = 17;
+    public const int CloseDestroyComp = 1;
+    public const int CreateGameObjCmdComp = 2;
+    public const int DestroyFlag = 3;
+    public const int IdComp = 4;
+    public const int LifetimeComp = 5;
+    public const int TimerComp = 6;
+    public const int ViewComp = 7;
+    public const int FireCmdComp = 8;
+    public const int ChangeItemCmdComp = 9;
+    public const int ItemComp = 10;
+    public const int ChangeHpComp = 11;
+    public const int StatsComp = 12;
+    public const int BulletTag = 13;
+    public const int CoinTag = 14;
+    public const int EnemyTag = 15;
+    public const int PhysicsTag = 16;
+    public const int PlayerTag = 17;
     public const int TargetComp = 18;
-    public const int TimerComp = 19;
-    public const int VelComp = 20;
-    public const int ViewComp = 21;
+    public const int PosComp = 19;
+    public const int RotComp = 20;
+    public const int VelComp = 21;
+    public const int DestroyFlagListener = 22;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "ActionComp",
-        "BulletTag",
-        "ChangeItemCmdComp",
         "CloseDestroyComp",
-        "CoinTag",
         "CreateGameObjCmdComp",
         "DestroyFlag",
-        "DestroyFlagListener",
-        "EnemyTag",
-        "FireCmdComp",
         "IdComp",
-        "ItemComp",
         "LifetimeComp",
+        "TimerComp",
+        "ViewComp",
+        "FireCmdComp",
+        "ChangeItemCmdComp",
+        "ItemComp",
+        "ChangeHpComp",
+        "StatsComp",
+        "BulletTag",
+        "CoinTag",
+        "EnemyTag",
         "PhysicsTag",
         "PlayerTag",
+        "TargetComp",
         "PosComp",
         "RotComp",
-        "StatsComp",
-        "TargetComp",
-        "TimerComp",
         "VelComp",
-        "ViewComp"
+        "DestroyFlagListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(ActionComp),
-        typeof(BulletTag),
-        typeof(ChangeItemCmdComp),
-        typeof(CloseDestroyComp),
-        typeof(CoinTag),
-        typeof(CreateGameObjCmdComp),
-        typeof(DestroyFlag),
-        typeof(DestroyFlagListenerComponent),
-        typeof(EnemyTag),
-        typeof(FireCmdComp),
-        typeof(IdComp),
-        typeof(ItemComp),
-        typeof(LifetimeComp),
-        typeof(PhysicsTag),
-        typeof(PlayerTag),
-        typeof(PosComp),
-        typeof(RotComp),
-        typeof(StatsComp),
-        typeof(TargetComp),
-        typeof(TimerComp),
-        typeof(VelComp),
-        typeof(ViewComp)
+        typeof(Components.Action.ActionComp),
+        typeof(Components.Base.CloseDestroyComp),
+        typeof(Components.Base.CreateGameObjCmdComp),
+        typeof(Components.Base.DestroyFlag),
+        typeof(Components.Base.IdComp),
+        typeof(Components.Base.LifetimeComp),
+        typeof(Components.Base.TimerComp),
+        typeof(Components.Base.ViewComp),
+        typeof(Components.Fire.FireCmdComp),
+        typeof(Components.Item.ChangeItemCmdComp),
+        typeof(Components.Item.ItemComp),
+        typeof(Components.Stat.ChangeHpComp),
+        typeof(Components.Stat.StatsComp),
+        typeof(Components.Tag.BulletTag),
+        typeof(Components.Tag.CoinTag),
+        typeof(Components.Tag.EnemyTag),
+        typeof(Components.Tag.PhysicsTag),
+        typeof(Components.Tag.PlayerTag),
+        typeof(Components.Target.TargetComp),
+        typeof(Components.Transform.PosComp),
+        typeof(Components.Transform.RotComp),
+        typeof(Components.Transform.VelComp),
+        typeof(DestroyFlagListenerComponent)
     };
 }

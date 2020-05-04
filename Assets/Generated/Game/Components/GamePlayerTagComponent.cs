@@ -6,9 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Tag;
-
 public partial class GameContext {
 
     public GameEntity playerTagEntity { get { return GetGroup(GameMatcher.PlayerTag).GetSingleEntity(); } }
@@ -38,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PlayerTag playerTagComponent = new PlayerTag();
+    static readonly Components.Tag.PlayerTag playerTagComponent = new Components.Tag.PlayerTag();
 
     public bool isPlayerTag {
         get { return HasComponent(GameComponentsLookup.PlayerTag); }

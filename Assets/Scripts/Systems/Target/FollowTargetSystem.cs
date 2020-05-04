@@ -31,7 +31,7 @@ namespace Systems.Target
 
                 var dirVector = (targetPos - selfPos).normalized;
 
-                var vel = entity.statsComp.Vars[VarFlag.Velocity.ToIdx()];
+                var vel = entity.GetStat(VarFlag.Velocity);
             
                 // 朝着目标方向
                 entity.ReplaceRotComp(dirVector.Vector2Angle2D());

@@ -4,6 +4,7 @@ using Systems.Fire;
 using Systems.Input;
 using Systems.Item;
 using Systems.Spawn;
+using Systems.Stat;
 using Systems.Target;
 
 namespace Manager
@@ -38,6 +39,8 @@ namespace Manager
 
             Add(new CloseDestroySystem(contexts));
             Add(new ChangeItemSystem(contexts));
+
+            Add(new HpSystem(contexts));
 
             Add(new PhysicsSystem(contexts));
 

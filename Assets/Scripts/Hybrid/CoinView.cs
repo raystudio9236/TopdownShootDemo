@@ -1,3 +1,8 @@
-public class CoinView : PhysicsView
+using Hybrid.Base;
+
+namespace Hybrid
 {
+    public class CoinView : PhysicsView
+    {
+    }
 }

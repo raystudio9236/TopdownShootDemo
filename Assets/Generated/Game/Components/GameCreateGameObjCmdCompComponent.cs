@@ -6,24 +6,21 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Components.Base;
-
 public partial class GameEntity {
 
-    public CreateGameObjCmdComp createGameObjCmdComp { get { return (CreateGameObjCmdComp)GetComponent(GameComponentsLookup.CreateGameObjCmdComp); } }
+    public Components.Base.CreateGameObjCmdComp createGameObjCmdComp { get { return (Components.Base.CreateGameObjCmdComp)GetComponent(GameComponentsLookup.CreateGameObjCmdComp); } }
     public bool hasCreateGameObjCmdComp { get { return HasComponent(GameComponentsLookup.CreateGameObjCmdComp); } }
 
     public void AddCreateGameObjCmdComp(ActorTag newTag) {
         var index = GameComponentsLookup.CreateGameObjCmdComp;
-        var component = (CreateGameObjCmdComp)CreateComponent(index, typeof(CreateGameObjCmdComp));
+        var component = (Components.Base.CreateGameObjCmdComp)CreateComponent(index, typeof(Components.Base.CreateGameObjCmdComp));
         component.Tag = newTag;
         AddComponent(index, component);
     }
 
     public void ReplaceCreateGameObjCmdComp(ActorTag newTag) {
         var index = GameComponentsLookup.CreateGameObjCmdComp;
-        var component = (CreateGameObjCmdComp)CreateComponent(index, typeof(CreateGameObjCmdComp));
+        var component = (Components.Base.CreateGameObjCmdComp)CreateComponent(index, typeof(Components.Base.CreateGameObjCmdComp));
         component.Tag = newTag;
         ReplaceComponent(index, component);
     }

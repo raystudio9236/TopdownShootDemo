@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Components.Stat;
 using Entitas;
+using Hybrid;
 using UnityEngine;
 using Utils;
 
@@ -18,16 +19,12 @@ namespace Systems.Fire
         protected override ICollector<GameEntity> GetTrigger(
             IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.AllOf(
-                GameMatcher.PlayerTag,
-                GameMatcher.FireCmdComp,
-                GameMatcher.ViewComp
-            ));
+            return context.CreateCollector(GameMatcher.FireCmdComp);
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity.isPlayerTag;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -40,12 +37,14 @@ namespace Systems.Fire
                     continue;
 
                 var playerView = (PlayerView) gameEntity.viewComp.View;
+                var playerDamage = gameEntity.GetStat(VarFlag.Damage);
 
                 if (fireCmd.Count == 1)
                 {
                     EntityUtil.CreateBulletEntity(_contexts,
                         playerView.Shoot.position,
-                        fireCmd.Angle);
+                        fireCmd.Angle,
+                        playerDamage);
                 }
                 else
                 {
@@ -58,19 +57,22 @@ namespace Systems.Fire
                         .Cross(fireCmd.Angle.Angle2Vector2D(), Vector3.forward)
                         .normalized;
                     var spacing =
-                        gameEntity.statsComp.Vars[VarFlag.BulletSpace.ToIdx()];
-                    var startPos = shootPos + rightDir * (count - 1) * spacing / 2f;
+                        gameEntity.GetStat(VarFlag.BulletSpace);
+                    var startPos =
+                        shootPos + rightDir * (count - 1) * spacing / 2f;
 
                     EntityUtil.CreateBulletEntity(_contexts,
                         startPos,
-                        (startPos - playerPos).Vector2Angle2D());
+                        (startPos - playerPos).Vector2Angle2D(),
+                        playerDamage);
 
                     for (var i = 1; i < count; i++)
                     {
                         var spawnPos = startPos - rightDir * (i * spacing);
                         EntityUtil.CreateBulletEntity(_contexts,
                             spawnPos,
-                            (spawnPos - playerPos).Vector2Angle2D());
+                            (spawnPos - playerPos).Vector2Angle2D(),
+                            playerDamage);
                     }
                 }
             }
