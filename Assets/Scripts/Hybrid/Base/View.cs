@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using Entitas.Unity;
+using Manager;
 using UnityEngine;
 using UnityEngine.Serialization;
 

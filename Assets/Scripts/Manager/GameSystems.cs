@@ -1,49 +1,52 @@
-public class GameSystems : Feature
+namespace Manager
 {
-    public GameSystems(Contexts contexts)
+    public class GameSystems : Feature
     {
-        // 生成玩家
-        Add(new PlayerSpawnSystem(contexts));
+        public GameSystems(Contexts contexts)
+        {
+            // 生成玩家
+            Add(new PlayerSpawnSystem(contexts));
 
-        // 生成敌人
-        Add(new EnemySpawnSystem(contexts));
+            // 生成敌人
+            Add(new EnemySpawnSystem(contexts));
 
-        // 玩家输入
-        Add(new InputSystem(contexts));
-        Add(new PlayerInputProcessSystem(contexts));
+            // 玩家输入
+            Add(new InputSystem(contexts));
+            Add(new PlayerInputProcessSystem(contexts));
 
-        Add(new UpdateTimerSystem(contexts));
+            Add(new UpdateTimerSystem(contexts));
 
-        // 目标
-        Add(new FollowTargetSystem(contexts));
+            // 目标
+            Add(new FollowTargetSystem(contexts));
 
-        Add(new FireSystem(contexts));
+            Add(new FireSystem(contexts));
 
-        Add(new ActionSystem(contexts));
+            Add(new ActionSystem(contexts));
 
-        Add(new AddViewSystem(contexts));
+            Add(new AddViewSystem(contexts));
 
-        Add(new LifetimeSystem(contexts));
-        Add(new SyncPosSystem(contexts));
+            Add(new LifetimeSystem(contexts));
+            Add(new SyncPosSystem(contexts));
 
-        Add(new PhysicsSystem(contexts));
+            Add(new PhysicsSystem(contexts));
 
-        Add(new CloseDestroySystem(contexts));
+            Add(new CloseDestroySystem(contexts));
 
-        Add(new GameEventSystems(contexts));
+            Add(new GameEventSystems(contexts));
 
-        // 清理
-        Add(new InputCleanupSystem(contexts));
-        Add(new DestroySystem(contexts));
+            // 清理
+            Add(new InputCleanupSystem(contexts));
+            Add(new DestroySystem(contexts));
+        }
     }
-}
 
-public class FixedUpdateGameSystems : Feature
-{
-    public FixedUpdateGameSystems(Contexts contexts)
+    public class FixedUpdateGameSystems : Feature
     {
-        // 移动
-        Add(new MoveSystem(contexts));
-        Add(new RotationSystem(contexts));
+        public FixedUpdateGameSystems(Contexts contexts)
+        {
+            // 移动
+            Add(new MoveSystem(contexts));
+            Add(new RotationSystem(contexts));
+        }
     }
 }

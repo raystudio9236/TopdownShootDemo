@@ -1,4 +1,5 @@
 using Entitas;
+using Manager;
 
 public class CloseDestroySystem : IExecuteSystem
 {

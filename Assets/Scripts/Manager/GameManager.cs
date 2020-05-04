@@ -1,58 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Manager
 {
-    public static GameManager Instance;
-    public static Contexts Contexts => Instance._contexts;
-
-    private Contexts _contexts;
-    private GameSystems _gameSystems;
-    private FixedUpdateGameSystems _fixedUpdateGameSystems;
-
-    public static GameEntity GetEntity(int id)
+    public class GameManager : MonoBehaviour
     {
-        return Contexts.game.GetEntityWithIdComp(id);
-    }
+        public static GameManager Instance;
+        public static Contexts Contexts => Instance._contexts;
 
-    private void Awake()
-    {
-        if (Instance != null)
-            Destroy(Instance.gameObject);
+        private Contexts _contexts;
+        private GameSystems _gameSystems;
+        private FixedUpdateGameSystems _fixedUpdateGameSystems;
 
-        Instance = this;
+        public static GameEntity GetEntity(int id)
+        {
+            return Contexts.game.GetEntityWithIdComp(id);
+        }
 
-        _contexts = Contexts.sharedInstance;
-        _contexts.SubscribeId();
+        private void Awake()
+        {
+            if (Instance != null)
+                Destroy(Instance.gameObject);
 
-        var physicsEntity = _contexts.physics.CreateEntity();
-        physicsEntity.AddPhysicsComp(
-            new List<CollisionInfo>());
+            Instance = this;
 
-        _gameSystems = new GameSystems(_contexts);
-        _fixedUpdateGameSystems = new FixedUpdateGameSystems(_contexts);
-    }
+            _contexts = Contexts.sharedInstance;
+            _contexts.SubscribeId();
 
-    private void Start()
-    {
-        _gameSystems.Initialize();
-    }
+            var physicsEntity = _contexts.physics.CreateEntity();
+            physicsEntity.AddPhysicsComp(
+                new List<CollisionInfo>());
 
-    private void FixedUpdate()
-    {
-        _fixedUpdateGameSystems.Execute();
-        _fixedUpdateGameSystems.Cleanup();
-    }
+            _gameSystems = new GameSystems(_contexts);
+            _fixedUpdateGameSystems = new FixedUpdateGameSystems(_contexts);
+        }
 
-    private void Update()
-    {
-        _gameSystems.Execute();
-        _gameSystems.Cleanup();
-    }
+        private void Start()
+        {
+            _gameSystems.Initialize();
+        }
 
-    private void OnDestroy()
-    {
-        _gameSystems.TearDown();
+        private void FixedUpdate()
+        {
+            _fixedUpdateGameSystems.Execute();
+            _fixedUpdateGameSystems.Cleanup();
+        }
+
+        private void Update()
+        {
+            _gameSystems.Execute();
+            _gameSystems.Cleanup();
+        }
+
+        private void OnDestroy()
+        {
+            _gameSystems.TearDown();
+        }
     }
 }
