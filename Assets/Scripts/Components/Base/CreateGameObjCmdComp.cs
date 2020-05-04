@@ -1,4 +1,5 @@
 using Entitas;
+using Other;
 
 namespace Components.Base
 {

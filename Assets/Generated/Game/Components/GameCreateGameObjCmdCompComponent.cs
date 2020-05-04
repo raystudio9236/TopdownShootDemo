@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Other;
+
 public partial class GameEntity {
 
     public Components.Base.CreateGameObjCmdComp createGameObjCmdComp { get { return (Components.Base.CreateGameObjCmdComp)GetComponent(GameComponentsLookup.CreateGameObjCmdComp); } }

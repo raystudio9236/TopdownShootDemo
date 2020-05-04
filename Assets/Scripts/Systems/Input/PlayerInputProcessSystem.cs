@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Components.Stat;
 using Entitas;
+using Other;
 using UnityEngine;
 
 namespace Systems.Input

@@ -1,25 +1,28 @@
 using Entitas;
 using UnityEngine;
 
-public class RotationSystem : IExecuteSystem
+namespace Systems.Transform
 {
-    private readonly IGroup<GameEntity> _group;
-    
-    public RotationSystem(Contexts contexts)
+    public class RotationSystem : IExecuteSystem
     {
-        _group = contexts.game.GetGroup(GameMatcher.AllOf(
-            GameMatcher.RotComp,
-            GameMatcher.ViewComp
-        ));
-    }
+        private readonly IGroup<GameEntity> _group;
     
-    public void Execute()
-    {
-        foreach (var gameEntity in _group.GetEntities())
+        public RotationSystem(Contexts contexts)
         {
-            var angle = gameEntity.rotComp.Angle;
-            gameEntity.viewComp.View.transform.rotation 
-                = Quaternion.Euler(0, 0, angle);
+            _group = contexts.game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.RotComp,
+                GameMatcher.ViewComp
+            ));
+        }
+    
+        public void Execute()
+        {
+            foreach (var gameEntity in _group.GetEntities())
+            {
+                var angle = gameEntity.rotComp.Angle;
+                gameEntity.viewComp.View.transform.rotation 
+                    = Quaternion.Euler(0, 0, angle);
+            }
         }
     }
 }

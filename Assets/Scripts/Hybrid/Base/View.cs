@@ -1,6 +1,7 @@
 ﻿using Entitas;
 using Entitas.Unity;
 using Manager;
+using Other;
 using UnityEngine;
 
 namespace Hybrid.Base

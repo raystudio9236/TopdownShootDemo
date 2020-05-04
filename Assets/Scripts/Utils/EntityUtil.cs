@@ -4,6 +4,7 @@ using Components.Base;
 using Components.Item;
 using Components.Stat;
 using Item;
+using Other;
 using UnityEngine;
 
 namespace Utils

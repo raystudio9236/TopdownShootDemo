@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
+using Other;
 
 namespace Components.Physics
 {

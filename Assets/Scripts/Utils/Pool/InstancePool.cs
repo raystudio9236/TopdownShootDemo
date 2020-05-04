@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Utils
+namespace Utils.Pool
 {
     public interface IPoolItem
     {

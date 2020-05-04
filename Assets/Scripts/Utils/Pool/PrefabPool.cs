@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Utils
+namespace Utils.Pool
 {
     [Serializable]
     public class PrefabPool
