@@ -38,7 +38,7 @@ namespace Actions.Core
             {
                 _iVars?.Clear();
                 _fVars?.Clear();
-                
+
                 _graphVars.Clear();
             }
 
@@ -143,6 +143,8 @@ namespace Actions.Core
             #endregion
         }
 
+        public string Name { get; private set; }
+
         public ActionGraph Graph { get; private set; }
         public GameEntity Entity { get; private set; }
 
@@ -161,17 +163,20 @@ namespace Actions.Core
 
         public void RecycleToPool()
         {
+            Name = string.Empty;
+
             Graph = null;
             Entity = null;
-            
+
             Var.Clear();
-            
+
             _executeNodeList.Clear();
             _executeNodeSet.Clear();
         }
 
-        public void SetData(ActionGraph graph, GameEntity entity)
+        public void SetData(string name, ActionGraph graph, GameEntity entity)
         {
+            Name = name;
             Graph = graph;
             Entity = entity;
 

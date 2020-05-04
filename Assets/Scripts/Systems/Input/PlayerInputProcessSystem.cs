@@ -48,9 +48,9 @@ public class PlayerInputProcessSystem : ReactiveSystem<InputEntity>
         playerEntity.ReplaceRotComp(angle);
 
         // 处理玩家开火
-        if (inputComp.MainButton)
-        {
-            playerEntity.AddFireCmdComp(angle);
-        }
+        // if (inputComp.MainButton)
+        // {
+        //     playerEntity.AddFireCmdComp(angle);
+        // }
     }
 }

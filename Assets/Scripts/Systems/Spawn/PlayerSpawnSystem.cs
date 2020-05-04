@@ -1,4 +1,5 @@
 using Entitas;
+using Manager;
 using UnityEngine;
 using Utils;
 
@@ -13,8 +14,9 @@ public class PlayerSpawnSystem : IInitializeSystem
 
     public void Initialize()
     {
-        EntityUtil.CreatePlayerEntity(_contexts, 
+        var playerEntity = EntityUtil.CreatePlayerEntity(_contexts, 
             Vector2.zero, 
             0);
+        GameManager.Instance.Player = playerEntity;
     }
 }

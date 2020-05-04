@@ -7,12 +7,21 @@ namespace Item
         public string ItemName;
         public string ItemDesc;
 
-        public void PickUp()
+        public void PickUp(GameEntity entity)
         {
-            OnPickUp();
+            OnPickUp(entity);
         }
 
-        protected virtual void OnPickUp()
+        public void Remove(GameEntity entity)
+        {
+            OnRemove(entity);
+        }
+
+        protected virtual void OnPickUp(GameEntity entity)
+        {
+        }
+
+        protected virtual void OnRemove(GameEntity entity)
         {
         }
     }

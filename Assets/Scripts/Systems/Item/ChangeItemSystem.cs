@@ -28,7 +28,7 @@ namespace Systems.Item
             {
                 var changeList = gameEntity.changeItemCmdComp.ChangeItemList;
                 var itemlist = gameEntity.itemComp.Items;
-                var newIndex = itemlist.Count; 
+                var newIndex = itemlist.Count;
 
                 foreach (var changeItemPair in changeList)
                 {
@@ -46,9 +46,13 @@ namespace Systems.Item
                                 if (itemlist[i].ItemName ==
                                     changeItemPair.ItemName)
                                 {
-                                    itemlist.RemoveAt(i);
                                     if (i < newIndex)
+                                    {
                                         newIndex--;
+                                        itemlist[i].Remove(gameEntity);
+                                    }
+
+                                    itemlist.RemoveAt(i);
                                 }
                             }
 
@@ -58,7 +62,7 @@ namespace Systems.Item
 
                 for (var i = newIndex; i < itemlist.Count; i++)
                 {
-                    itemlist[i].PickUp();
+                    itemlist[i].PickUp(gameEntity);
                 }
             }
         }

@@ -11,17 +11,17 @@ public partial class GameEntity {
     public TimerComp timerComp { get { return (TimerComp)GetComponent(GameComponentsLookup.TimerComp); } }
     public bool hasTimerComp { get { return HasComponent(GameComponentsLookup.TimerComp); } }
 
-    public void AddTimerComp(float newFireTimer) {
+    public void AddTimerComp(float[] newTimers) {
         var index = GameComponentsLookup.TimerComp;
         var component = (TimerComp)CreateComponent(index, typeof(TimerComp));
-        component.FireTimer = newFireTimer;
+        component.Timers = newTimers;
         AddComponent(index, component);
     }
 
-    public void ReplaceTimerComp(float newFireTimer) {
+    public void ReplaceTimerComp(float[] newTimers) {
         var index = GameComponentsLookup.TimerComp;
         var component = (TimerComp)CreateComponent(index, typeof(TimerComp));
-        component.FireTimer = newFireTimer;
+        component.Timers = newTimers;
         ReplaceComponent(index, component);
     }
 

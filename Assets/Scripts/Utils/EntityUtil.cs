@@ -21,20 +21,20 @@ namespace Utils
             playerEntity.isPlayerTag = true;
             playerEntity.isPhysicsTag = true;
 
-            AddStats(playerEntity, 8f);
+            playerEntity.AddStats(8f);
 
             playerEntity.AddPosComp(pos);
             playerEntity.AddVelComp(Vector2.zero);
             playerEntity.AddRotComp(angle);
             playerEntity.AddCreateGameObjCmdComp(ActorTag.Player);
 
-            playerEntity.AddTimerComp(0f);
+            playerEntity.AddTimer();
 
             playerEntity.AddActionComp(new List<ActionGraphHost>
             {
                 ActionManager.Instance.GetGraph(ActionTag.Dash, playerEntity)
             });
-            
+
             playerEntity.AddItemComp(new List<ItemData>());
 
             return playerEntity;
@@ -49,7 +49,7 @@ namespace Utils
             enemyEntity.isEnemyTag = true;
             enemyEntity.isPhysicsTag = true;
 
-            AddStats(enemyEntity, 2f);
+            enemyEntity.AddStats(2f);
 
             enemyEntity.AddPosComp(pos);
             enemyEntity.AddVelComp(Vector2.zero);
@@ -67,7 +67,7 @@ namespace Utils
             bulletEntity.isBulletTag = true;
             bulletEntity.isPhysicsTag = true;
 
-            AddStats(bulletEntity, 12f);
+            bulletEntity.AddStats(12f);
 
             bulletEntity.AddPosComp(pos);
             bulletEntity.AddVelComp(angle.Angle2Vector2D() * 12f);
@@ -87,7 +87,7 @@ namespace Utils
             coinEntity.isCoinTag = true;
             coinEntity.isPhysicsTag = true;
 
-            AddStats(coinEntity, 12f);
+            coinEntity.AddStats(12f);
 
             coinEntity.AddPosComp(pos);
             coinEntity.AddVelComp(Vector2.zero);
@@ -117,13 +117,21 @@ namespace Utils
             return playerShadowEntity;
         }
 
-        private static GameEntity AddStats(GameEntity gameEntity,
-            float velocity = 0f)
+        private static GameEntity AddStats(this GameEntity gameEntity,
+            float velocity = 0f,
+            float attackSpeed = 1f)
         {
             var stats = new float[VarFlag.All.ToIdx()];
             stats[VarFlag.Velocity.ToIdx()] = velocity;
+            stats[VarFlag.AttackSpeed.ToIdx()] = attackSpeed;
             gameEntity.AddStatsComp(stats);
 
+            return gameEntity;
+        }
+
+        private static GameEntity AddTimer(this GameEntity gameEntity)
+        {
+            gameEntity.AddTimerComp(new float[TimerFlag.All.ToIdx()]);
             return gameEntity;
         }
     }

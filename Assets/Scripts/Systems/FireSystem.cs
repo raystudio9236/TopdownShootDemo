@@ -33,12 +33,6 @@ public class FireSystem : ReactiveSystem<GameEntity>
             var fireCmd = gameEntity.fireCmdComp;
             gameEntity.RemoveFireCmdComp();
 
-            if (gameEntity.timerComp.FireTimer > 0)
-                continue;
-            
-            // todo 暂时将开火CD设置为0.5s
-            gameEntity.ReplaceTimerComp(0.5f);
-
             var playerView = (PlayerView) gameEntity.viewComp.View;
 
             EntityUtil.CreateBulletEntity(_contexts,

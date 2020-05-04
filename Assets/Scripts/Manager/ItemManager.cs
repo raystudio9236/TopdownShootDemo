@@ -32,7 +32,7 @@ namespace Manager
                 var player = GameManager.Contexts.game.playerTagEntity;
                 player.ChangeItem(new ChangeItemPair
                 {
-                    ItemName = "Test1",
+                    ItemName = "NormalFire",
                     Type = ChangeItemType.Add
                 });
             }
@@ -41,9 +41,16 @@ namespace Manager
                 var player = GameManager.Contexts.game.playerTagEntity;
                 player.ChangeItem(new ChangeItemPair
                 {
-                    ItemName = "Test2",
+                    ItemName = "DoubleFire",
                     Type = ChangeItemType.Add
                 });
+                
+                player.ChangeItem(new ChangeItemPair
+                {
+                    ItemName = "NormalFire",
+                    Type = ChangeItemType.Remove
+                });
+
             }
         }
 

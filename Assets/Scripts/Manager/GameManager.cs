@@ -8,6 +8,8 @@ namespace Manager
         public static GameManager Instance;
         public static Contexts Contexts => Instance._contexts;
 
+        public GameEntity Player;
+
         private Contexts _contexts;
         private GameSystems _gameSystems;
         private FixedUpdateGameSystems _fixedUpdateGameSystems;

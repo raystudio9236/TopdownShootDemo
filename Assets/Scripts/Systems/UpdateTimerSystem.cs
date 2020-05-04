@@ -13,13 +13,18 @@ public class UpdateTimerSystem : IExecuteSystem
     public void Execute()
     {
         var dt = Time.deltaTime;
+        var timerCnt = TimerFlag.All.ToIdx();
 
         foreach (var gameEntity in _group.GetEntities())
         {
-            var newTime = Mathf.Max(
-                gameEntity.timerComp.FireTimer - dt,
-                0);
-            gameEntity.ReplaceTimerComp(newTime);
+            var timerArr = gameEntity.timerComp.Timers;
+            for (var i = 0; i < timerCnt; i++)
+            {
+                var newTime = Mathf.Max(
+                    timerArr[i] - dt,
+                    0);
+                timerArr[i] = newTime;
+            }
         }
     }
 }

@@ -4,7 +4,8 @@ using Entitas;
 [Serializable]
 public enum VarFlag : short
 {
-    Velocity, // 速度  
+    Velocity, // 速度
+    AttackSpeed, // 攻击速度
     All,
 }
 
