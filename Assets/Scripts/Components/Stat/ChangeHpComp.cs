@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
+using Events;
+using Manager;
 
 namespace Components.Stat
 {
@@ -20,6 +22,12 @@ namespace Components.Stat
             var list = gameEntity.changeHpComp.ChangeList;
             list.Add(changeValue);
             gameEntity.ReplaceChangeHpComp(true, list);
+
+            GameManager.Send(GlobalEvent.ChangeHp, new ChangeHpData()
+            {
+                Target = gameEntity,
+                ChangeValue = changeValue
+            });
 
             return gameEntity;
         }

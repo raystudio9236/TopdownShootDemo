@@ -17,10 +17,15 @@ namespace Other
         {
             return Vector2.SignedAngle(Vector2.up, dir);
         }
-    
+
         public static float Vector2Angle2D(this Vector3 dir)
         {
             return Vector2.SignedAngle(Vector2.up, dir);
+        }
+
+        public static RectTransform RectTf(this Transform tf)
+        {
+            return tf as RectTransform;
         }
     }
 
@@ -30,7 +35,7 @@ namespace Other
         {
             foreach (var context in contexts.allContexts)
             {
-                if (Array.FindIndex(context.contextInfo.componentTypes, 
+                if (Array.FindIndex(context.contextInfo.componentTypes,
                     v => v == typeof(IdComp)) >= 0)
                 {
                     context.OnEntityCreated += AddId;

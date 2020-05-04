@@ -37,6 +37,16 @@ namespace Manager
             return Contexts.game.GetEntityWithIdComp(id);
         }
 
+        public static void Send(short type)
+        {
+            Instance._eventDispatcher.Send(type);
+        }
+
+        public static void Send<T>(short type, T msgData)
+        {
+            Instance._eventDispatcher.Send(type, msgData);
+        }
+
         public static void AddHandler(short type, EventHandler handler)
         {
             Instance._eventDispatcher.AddHandler(type, handler);
