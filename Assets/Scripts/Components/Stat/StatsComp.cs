@@ -1,10 +1,12 @@
 using System;
 using Entitas;
+using Events;
+using Utils.Event;
 
 namespace Components.Stat
 {
     [Serializable]
-    public enum VarFlag : short
+    public enum StatFlag : short
     {
         Velocity, // 速度
 
@@ -14,39 +16,43 @@ namespace Components.Stat
 
         Hp, // 血量
         MaxHp, // 最大血量
-        
+
         Damage, // 伤害
 
         All,
     }
 
+    public sealed class StatsComp : IComponent
+    {
+        public float[] Vars;
+        public EventDispatcher EventDispatcher;
+    }
+
     public static class VarFlagExtension
     {
-        public static short ToIdx(this VarFlag flag)
+        public static short ToIdx(this StatFlag flag)
         {
             return (short) flag;
         }
     }
 
-    public sealed class StatsComp : IComponent
-    {
-        public float[] Vars;
-    }
-
     public static class StatsCompEx
     {
-        public static GameEntity SetStat(this GameEntity gameEntity,
-            VarFlag varFlag,
+        public static GameEntity SetStat(
+            this GameEntity gameEntity,
+            StatFlag statFlag,
             float value)
         {
-            gameEntity.statsComp.Vars[varFlag.ToIdx()] = value;
+            gameEntity.statsComp.Vars[statFlag.ToIdx()] = value;
+            gameEntity.NotifyStatChange(statFlag, value);
             return gameEntity;
         }
-        
-        public static float GetStat(this GameEntity gameEntity,
-            VarFlag varFlag)
+
+        public static float GetStat(
+            this GameEntity gameEntity,
+            StatFlag statFlag)
         {
-            return gameEntity.statsComp.Vars[varFlag.ToIdx()];
+            return gameEntity.statsComp.Vars[statFlag.ToIdx()];
         }
     }
 }

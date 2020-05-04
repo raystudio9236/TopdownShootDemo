@@ -38,7 +38,7 @@ namespace Systems.Fire
                     continue;
 
                 var playerView = (PlayerView) gameEntity.viewComp.View;
-                var playerDamage = gameEntity.GetStat(VarFlag.Damage);
+                var playerDamage = gameEntity.GetStat(StatFlag.Damage);
 
                 if (fireCmd.Count == 1)
                 {
@@ -58,7 +58,7 @@ namespace Systems.Fire
                         .Cross(fireCmd.Angle.Angle2Vector2D(), Vector3.forward)
                         .normalized;
                     var spacing =
-                        gameEntity.GetStat(VarFlag.BulletSpace);
+                        gameEntity.GetStat(StatFlag.BulletSpace);
                     var startPos =
                         shootPos + rightDir * (count - 1) * spacing / 2f;
 

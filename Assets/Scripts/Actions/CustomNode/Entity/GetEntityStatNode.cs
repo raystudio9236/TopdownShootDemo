@@ -6,13 +6,13 @@ namespace Actions.CustomNode.Entity
 {
     public class GetEntityStatNode : ActionNode
     {
-        public VarFlag VarFlag;
+        public StatFlag statFlag;
         [Output] public float Value;
 
         public override object GetValue(NodePort port)
         {
             if (port.fieldName == "Value")
-                return entity.GetStat(VarFlag);
+                return entity.GetStat(statFlag);
 
             return null;
         }

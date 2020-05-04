@@ -35,7 +35,7 @@ namespace Systems.Input
 
             // 处理玩家移动
             var velocity =
-                playerEntity.GetStat(VarFlag.Velocity);
+                playerEntity.GetStat(StatFlag.Velocity);
             playerEntity.ReplaceVelComp(
                 new Vector2(
                     inputComp.Dir.x * velocity,

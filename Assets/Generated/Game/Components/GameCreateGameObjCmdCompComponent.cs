@@ -6,22 +6,19 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Other;
-
 public partial class GameEntity {
 
     public Components.Base.CreateGameObjCmdComp createGameObjCmdComp { get { return (Components.Base.CreateGameObjCmdComp)GetComponent(GameComponentsLookup.CreateGameObjCmdComp); } }
     public bool hasCreateGameObjCmdComp { get { return HasComponent(GameComponentsLookup.CreateGameObjCmdComp); } }
 
-    public void AddCreateGameObjCmdComp(ActorTag newTag) {
+    public void AddCreateGameObjCmdComp(Other.ActorTag newTag) {
         var index = GameComponentsLookup.CreateGameObjCmdComp;
         var component = (Components.Base.CreateGameObjCmdComp)CreateComponent(index, typeof(Components.Base.CreateGameObjCmdComp));
         component.Tag = newTag;
         AddComponent(index, component);
     }
 
-    public void ReplaceCreateGameObjCmdComp(ActorTag newTag) {
+    public void ReplaceCreateGameObjCmdComp(Other.ActorTag newTag) {
         var index = GameComponentsLookup.CreateGameObjCmdComp;
         var component = (Components.Base.CreateGameObjCmdComp)CreateComponent(index, typeof(Components.Base.CreateGameObjCmdComp));
         component.Tag = newTag;

@@ -6,6 +6,7 @@ using Components.Stat;
 using Item;
 using Other;
 using UnityEngine;
+using Utils.Event;
 
 namespace Utils
 {
@@ -148,15 +149,15 @@ namespace Utils
             float maxHp = 1f,
             float damage = 0f)
         {
-            var stats = new float[VarFlag.All.ToIdx()];
-            stats[VarFlag.Velocity.ToIdx()] = velocity;
-            stats[VarFlag.AttackSpeed.ToIdx()] = attackSpeed;
-            stats[VarFlag.BulletCount.ToIdx()] = bulletCount;
-            stats[VarFlag.BulletSpace.ToIdx()] = bulletSpace;
-            stats[VarFlag.Hp.ToIdx()] = Hp;
-            stats[VarFlag.MaxHp.ToIdx()] = maxHp;
-            stats[VarFlag.Damage.ToIdx()] = damage;
-            gameEntity.AddStatsComp(stats);
+            var stats = new float[StatFlag.All.ToIdx()];
+            stats[StatFlag.Velocity.ToIdx()] = velocity;
+            stats[StatFlag.AttackSpeed.ToIdx()] = attackSpeed;
+            stats[StatFlag.BulletCount.ToIdx()] = bulletCount;
+            stats[StatFlag.BulletSpace.ToIdx()] = bulletSpace;
+            stats[StatFlag.Hp.ToIdx()] = Hp;
+            stats[StatFlag.MaxHp.ToIdx()] = maxHp;
+            stats[StatFlag.Damage.ToIdx()] = damage;
+            gameEntity.AddStatsComp(stats, new EventDispatcher());
 
             return gameEntity;
         }

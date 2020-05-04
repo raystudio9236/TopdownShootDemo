@@ -6,16 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Other;
-
 public partial class PhysicsContext {
 
     public PhysicsEntity physicsCompEntity { get { return GetGroup(PhysicsMatcher.PhysicsComp).GetSingleEntity(); } }
     public Components.Physics.PhysicsComp physicsComp { get { return physicsCompEntity.physicsComp; } }
     public bool hasPhysicsComp { get { return physicsCompEntity != null; } }
 
-    public PhysicsEntity SetPhysicsComp(System.Collections.Generic.List<CollisionInfo> newCollisionInfos) {
+    public PhysicsEntity SetPhysicsComp(System.Collections.Generic.List<Other.CollisionInfo> newCollisionInfos) {
         if (hasPhysicsComp) {
             throw new Entitas.EntitasException("Could not set PhysicsComp!\n" + this + " already has an entity with Components.Physics.PhysicsComp!",
                 "You should check if the context already has a physicsCompEntity before setting it or use context.ReplacePhysicsComp().");
@@ -25,7 +22,7 @@ public partial class PhysicsContext {
         return entity;
     }
 
-    public void ReplacePhysicsComp(System.Collections.Generic.List<CollisionInfo> newCollisionInfos) {
+    public void ReplacePhysicsComp(System.Collections.Generic.List<Other.CollisionInfo> newCollisionInfos) {
         var entity = physicsCompEntity;
         if (entity == null) {
             entity = SetPhysicsComp(newCollisionInfos);
@@ -52,14 +49,14 @@ public partial class PhysicsEntity {
     public Components.Physics.PhysicsComp physicsComp { get { return (Components.Physics.PhysicsComp)GetComponent(PhysicsComponentsLookup.PhysicsComp); } }
     public bool hasPhysicsComp { get { return HasComponent(PhysicsComponentsLookup.PhysicsComp); } }
 
-    public void AddPhysicsComp(System.Collections.Generic.List<CollisionInfo> newCollisionInfos) {
+    public void AddPhysicsComp(System.Collections.Generic.List<Other.CollisionInfo> newCollisionInfos) {
         var index = PhysicsComponentsLookup.PhysicsComp;
         var component = (Components.Physics.PhysicsComp)CreateComponent(index, typeof(Components.Physics.PhysicsComp));
         component.CollisionInfos = newCollisionInfos;
         AddComponent(index, component);
     }
 
-    public void ReplacePhysicsComp(System.Collections.Generic.List<CollisionInfo> newCollisionInfos) {
+    public void ReplacePhysicsComp(System.Collections.Generic.List<Other.CollisionInfo> newCollisionInfos) {
         var index = PhysicsComponentsLookup.PhysicsComp;
         var component = (Components.Physics.PhysicsComp)CreateComponent(index, typeof(Components.Physics.PhysicsComp));
         component.CollisionInfos = newCollisionInfos;

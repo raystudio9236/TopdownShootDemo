@@ -34,7 +34,7 @@ namespace Systems.Base
                     {
                         sourceEntity.isDestroyFlag = true;
                         otherEntity.ChangeHp(
-                            -sourceEntity.GetStat(VarFlag.Damage));
+                            -sourceEntity.GetStat(StatFlag.Damage));
                     }
                 }
                 else if (sourceEntity.isCoinTag)
@@ -44,6 +44,14 @@ namespace Systems.Base
                         if (!sourceEntity.hasTargetComp)
                             sourceEntity.AddTargetComp(otherEntity.idComp
                                 .Value);
+                    }
+                }
+                else if (sourceEntity.isEnemyTag)
+                {
+                    if (otherEntity.isPlayerTag)
+                    {
+                        otherEntity.ChangeHp(
+                            -1);
                     }
                 }
             }

@@ -31,10 +31,10 @@ namespace Utils
         {
             if (entity.hasStatsComp)
             {
-                var newValue = entity.GetStat(VarFlag.Velocity) +
+                var newValue = entity.GetStat(StatFlag.Velocity) +
                                offset;
                 newValue = newValue < 0 ? 0 : newValue;
-                entity.SetStat(VarFlag.Velocity, newValue);
+                entity.SetStat(StatFlag.Velocity, newValue);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Utils
 
             if (entity.hasStatsComp)
             {
-                entity.SetStat(VarFlag.Velocity, newVelocity);
+                entity.SetStat(StatFlag.Velocity, newVelocity);
             }
         }
     }

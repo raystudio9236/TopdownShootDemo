@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Events;
 using Other;
 using UnityEngine;
+using Utils.Event;
 
 namespace Manager
 {
@@ -9,16 +11,53 @@ namespace Manager
         public static GameManager Instance;
         public static Contexts Contexts => Instance._contexts;
 
-        public GameEntity Player;
+        private GameEntity _player;
+
+        public GameEntity Player
+        {
+            set
+            {
+                _player = value;
+                _eventDispatcher.Send(GlobalEvent.PlayerSpawn, value);
+            }
+            get => _player;
+        }
 
         private Contexts _contexts;
         private GameSystems _gameSystems;
         private FixedUpdateGameSystems _fixedUpdateGameSystems;
 
+        private readonly EventDispatcher _eventDispatcher =
+            new EventDispatcher();
+
+        #region Static
+
         public static GameEntity GetEntity(int id)
         {
             return Contexts.game.GetEntityWithIdComp(id);
         }
+
+        public static void AddHandler(short type, EventHandler handler)
+        {
+            Instance._eventDispatcher.AddHandler(type, handler);
+        }
+
+        public static void AddHandler<T>(short type, EventHandler<T> handler)
+        {
+            Instance._eventDispatcher.AddHandler(type, handler);
+        }
+
+        public static void RemoveHandler(short type, EventHandler handler)
+        {
+            Instance._eventDispatcher.RemoveHandler(type, handler);
+        }
+
+        public static void RemoveHandler<T>(short type, EventHandler<T> handler)
+        {
+            Instance._eventDispatcher.RemoveHandler(type, handler);
+        }
+
+        #endregion
 
         private void Awake()
         {

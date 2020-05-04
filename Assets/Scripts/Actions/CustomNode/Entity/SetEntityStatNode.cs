@@ -5,13 +5,13 @@ namespace Actions.CustomNode.Entity
 {
     public class SetEntityStatNode : FlowActionNode
     {
-        public VarFlag VarFlag;
+        public StatFlag statFlag;
         [Input] public float Value;
 
         protected override void OnFlowExecute()
         {
             var value = GetInputValue("Value", Value);
-            entity.SetStat(VarFlag, value);
+            entity.SetStat(statFlag, value);
         }
     }
 }

@@ -28,8 +28,8 @@ namespace Systems.Stat
             {
                 var changeHpList = gameEntity.changeHpComp.ChangeList;
 
-                var currentValue = gameEntity.GetStat(VarFlag.Hp);
-                var maxValue = gameEntity.GetStat(VarFlag.MaxHp);
+                var currentValue = gameEntity.GetStat(StatFlag.Hp);
+                var maxValue = gameEntity.GetStat(StatFlag.MaxHp);
 
                 foreach (var f in changeHpList)
                     currentValue += f;
@@ -39,7 +39,7 @@ namespace Systems.Stat
                 if (currentValue <= 0)
                     gameEntity.isDestroyFlag = true;
                 else
-                    gameEntity.SetStat(VarFlag.Hp, currentValue);
+                    gameEntity.SetStat(StatFlag.Hp, currentValue);
 
                 changeHpList.Clear();
             }
