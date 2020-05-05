@@ -48,4 +48,14 @@ namespace Other
             (entity as IIdCompEntity).ReplaceIdComp(entity.creationIndex);
         }
     }
+
+    public static class GameEntityEx
+    {
+        public static bool IsValid(this GameEntity gameEntity)
+        {
+            return gameEntity != null
+                   && gameEntity.hasIdComp
+                   && !gameEntity.isDestroyFlag;
+        }
+    }
 }

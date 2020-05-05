@@ -42,7 +42,9 @@ namespace Systems.Fire
 
                 if (fireCmd.Count == 1)
                 {
-                    EntityUtil.CreateBulletEntity(_contexts,
+                    EntityUtil.CreateBulletEntity(
+                        _contexts,
+                        gameEntity,
                         playerView.Shoot.position,
                         fireCmd.Angle,
                         playerDamage);
@@ -62,7 +64,9 @@ namespace Systems.Fire
                     var startPos =
                         shootPos + rightDir * (count - 1) * spacing / 2f;
 
-                    EntityUtil.CreateBulletEntity(_contexts,
+                    EntityUtil.CreateBulletEntity(
+                        _contexts,
+                        gameEntity,
                         startPos,
                         (startPos - playerPos).Vector2Angle2D(),
                         playerDamage);
@@ -70,7 +74,9 @@ namespace Systems.Fire
                     for (var i = 1; i < count; i++)
                     {
                         var spawnPos = startPos - rightDir * (i * spacing);
-                        EntityUtil.CreateBulletEntity(_contexts,
+                        EntityUtil.CreateBulletEntity(
+                            _contexts,
+                            gameEntity,
                             spawnPos,
                             (spawnPos - playerPos).Vector2Angle2D(),
                             playerDamage);

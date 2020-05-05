@@ -12,6 +12,7 @@ namespace Other
         Enemy,
         Coin,
         PlayerShadow,
+        None,
     }
 
     [Serializable]

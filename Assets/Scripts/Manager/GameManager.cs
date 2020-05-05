@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Entitas;
 using Events;
 using Other;
 using UnityEngine;
@@ -30,12 +31,42 @@ namespace Manager
         private readonly EventDispatcher _eventDispatcher =
             new EventDispatcher();
 
+        private readonly Dictionary<ActorTag, IGroup<GameEntity>>
+            _entityGroupDic = new Dictionary<ActorTag, IGroup<GameEntity>>();
+
         #region Static
+        
+        #region Access
 
         public static GameEntity GetEntity(int id)
         {
             return Contexts.game.GetEntityWithIdComp(id);
         }
+
+        public static GameEntity GetPlayer()
+        {
+            return Instance.Player;
+        }
+
+        public static List<GameEntity> GetEntities(ActorTag actorTag,
+            ref List<GameEntity> entities)
+        {
+            if (Instance._entityGroupDic.TryGetValue(actorTag, out var group))
+            {
+                if (entities == null)
+                    entities = new List<GameEntity>();
+                else
+                    entities.Clear();
+
+                return group.GetEntities(entities);
+            }
+
+            return null;
+        }
+        
+        #endregion
+
+        #region Event
 
         public static void Send(short type)
         {
@@ -69,6 +100,8 @@ namespace Manager
 
         #endregion
 
+        #endregion
+
         private void Awake()
         {
             if (Instance != null)
@@ -85,6 +118,11 @@ namespace Manager
 
             _gameSystems = new GameSystems(_contexts);
             _fixedUpdateGameSystems = new FixedUpdateGameSystems(_contexts);
+
+            _entityGroupDic.Add(ActorTag.Enemy,
+                _contexts.game.GetGroup(GameMatcher.EnemyTag));
+            _entityGroupDic.Add(ActorTag.Bullet,
+                _contexts.game.GetGroup(GameMatcher.BulletTag));
         }
 
         private void Start()

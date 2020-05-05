@@ -25,8 +25,9 @@ namespace Manager
             Add(new PlayerInputProcessSystem(contexts));
 
             Add(new UpdateTimerSystem(contexts));
-
+            
             // 目标
+            Add(new FindTargetSystem(contexts));
             Add(new FollowTargetSystem(contexts));
 
             Add(new FireSystem(contexts));

@@ -1,21 +1,21 @@
 namespace Events
 {
-    public static class GlobalEvent
+    public class GlobalEvent : EventEnumBase
     {
-        private static short _index = 0;
-
-        private static short AutoIndex
-        {
-            get { return _index++; }
-        }
-
-        public static short PlayerSpawn = AutoIndex;
-        public static short ChangeHp = AutoIndex;
+        public static readonly short PlayerSpawn = AutoIndex;
+        public static readonly short ChangeHp = AutoIndex;
+        public static readonly short SpawnBullet = AutoIndex;
     }
-    
+
     public struct ChangeHpData
     {
         public GameEntity Target;
         public float ChangeValue;
+    }
+
+    public struct SpawnBulletData
+    {
+        public GameEntity Host;
+        public GameEntity Bullet;
     }
 }

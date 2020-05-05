@@ -1,4 +1,6 @@
+using Components.Target;
 using Entitas;
+using Other;
 using UnityEngine;
 using Utils;
 
@@ -31,7 +33,11 @@ namespace Systems.Spawn
                     0f);
 
                 var playerEntity = _contexts.game.playerTagEntity;
-                enemyEntity.AddTargetComp(playerEntity.idComp.Value);
+                enemyEntity.AddTargetComp(
+                    playerEntity.idComp.Value,
+                    ActorTag.Player,
+                    FindTargetType.Given,
+                    LostTargetActionType.None);
             }
         }
     }

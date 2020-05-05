@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Actions.Core;
+using Components.Item;
 using Item;
 using Other;
 using UnityEngine;
@@ -23,6 +24,19 @@ namespace Manager
                 Destroy(Instance.gameObject);
 
             Instance = this;
+        }
+        
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                var player = GameManager.Contexts.game.playerTagEntity;
+                player.ChangeItem(new ChangeItemPair
+                {
+                    ItemName = "BulletFindClosetTarget",
+                    Type = ChangeItemType.Add
+                });
+            }
         }
 
         public ItemData GetItem(string itemName)

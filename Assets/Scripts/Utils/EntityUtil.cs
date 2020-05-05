@@ -3,7 +3,9 @@ using Actions.Core;
 using Components.Base;
 using Components.Item;
 using Components.Stat;
+using Events;
 using Item;
+using Manager;
 using Other;
 using UnityEngine;
 using Utils.Event;
@@ -45,6 +47,8 @@ namespace Utils
 
             playerEntity.AddItem("NormalFire", "Dash");
 
+            playerEntity.AddEventComp(new EventDispatcher());
+
             return playerEntity;
         }
 
@@ -74,7 +78,9 @@ namespace Utils
             return enemyEntity;
         }
 
-        public static GameEntity CreateBulletEntity(Contexts contexts,
+        public static GameEntity CreateBulletEntity(
+            Contexts contexts,
+            GameEntity host,
             Vector2 pos,
             float angle = 0,
             float damage = 50f)
@@ -97,6 +103,22 @@ namespace Utils
             bulletEntity.AddRotComp(angle);
             bulletEntity.AddCreateGameObjCmdComp(ActorTag.Bullet);
             bulletEntity.AddLifetimeComp(1);
+
+            GameManager.Send(GlobalEvent.SpawnBullet, new SpawnBulletData
+            {
+                Host = host,
+                Bullet = bulletEntity
+            });
+
+            if (host.hasEventComp)
+            {
+                host.eventComp.Dispatcher.Send(EntityEvent.SpawnBullet,
+                    new EntitySpawnBulletData
+                    {
+                        Host = host,
+                        Bullet = bulletEntity
+                    });
+            }
 
             return bulletEntity;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Item
 {
-    [CreateAssetMenu(fileName = "New Graph Item",
+    [CreateAssetMenu(fileName = "AddGraphItem",
         menuName = "Item/AddGraphItem")]
     public class AddGraphItem : ItemData
     {

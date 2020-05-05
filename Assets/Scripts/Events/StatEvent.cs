@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Events
 {
-    public static class StatEvent
+    public class StatEvent : EventEnumBase
     {
-        public static short Change = 0;
+        public static readonly short Change = AutoIndex;
     }
 
     public struct StatChangeData

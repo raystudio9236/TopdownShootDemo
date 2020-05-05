@@ -1,7 +1,9 @@
 using Components.Physics;
 using Components.Stat;
+using Components.Target;
 using Entitas;
 using EZCameraShake;
+using Other;
 
 namespace Systems.Base
 {
@@ -45,8 +47,11 @@ namespace Systems.Base
                     if (otherEntity.isPlayerTag)
                     {
                         if (!sourceEntity.hasTargetComp)
-                            sourceEntity.AddTargetComp(otherEntity.idComp
-                                .Value);
+                            sourceEntity.AddTargetComp(
+                                otherEntity.idComp.Value,
+                                ActorTag.Player,
+                                FindTargetType.Given,
+                                LostTargetActionType.None);
                     }
                 }
                 else if (sourceEntity.isEnemyTag)
