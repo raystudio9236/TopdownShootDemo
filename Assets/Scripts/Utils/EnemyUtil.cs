@@ -17,7 +17,7 @@ namespace Utils
 
                 EntityUtil.CreateCoinEntity(GameManager.Contexts,
                     pos + new Vector2(x, y),
-                    0f);
+                    Random.Range(0, 360));
             }
         }
     }

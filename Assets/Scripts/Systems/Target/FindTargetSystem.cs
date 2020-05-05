@@ -23,7 +23,7 @@ namespace Systems.Target
 
         protected override bool Filter(GameEntity entity)
         {
-            return !entity.hasTargetComp;
+            return !entity.hasTargetComp && entity.hasFindTargetCmdComp;
         }
 
         protected override void Execute(List<GameEntity> entities)

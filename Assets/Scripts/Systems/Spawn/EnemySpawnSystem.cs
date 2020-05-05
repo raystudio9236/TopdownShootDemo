@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using Components.Stat;
 using Components.Target;
 using Entitas;
 using Other;
@@ -16,23 +18,32 @@ namespace Systems.Spawn
             _contexts = contexts;
         }
 
-        public void Execute()
+        public async void Execute()
         {
             var dt = Time.deltaTime;
             _timer += dt;
 
-            if (_timer >= 1f)
+            if (_timer >= 1.5f)
             {
-                _timer = 0f;
+                var playerEntity = _contexts.game.playerTagEntity;
+
+                _timer = 0;
 
                 var x = Random.Range(-9f, 9f);
                 var y = Random.Range(-5f, 5f);
-            
-                var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts, 
-                    new Vector2(x, y), 
+                var pos = new Vector2(x, y) + playerEntity.posComp.Value;
+
+                var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts,
+                    new Vector2(x, y),
                     0f);
 
-                var playerEntity = _contexts.game.playerTagEntity;
+                await Task.Delay(
+                    (int) (enemyEntity.GetStat(StatFlag.FollowStartTime) *
+                           1000));
+
+                if (!enemyEntity.IsValid())
+                    return;
+
                 enemyEntity.AddTargetComp(
                     playerEntity.idComp.Value,
                     ActorTag.Player,

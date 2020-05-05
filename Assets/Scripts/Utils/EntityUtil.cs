@@ -33,7 +33,9 @@ namespace Utils
                 bulletSpace: 0.2f,
                 Hp: 100f,
                 maxHp: 100f,
-                damage: 50f);
+                damage: 50f,
+                followStartTime: 0.2f,
+                followRotMaxAngle: 180f);
 
             playerEntity.AddPosComp(pos);
             playerEntity.AddVelComp(Vector2.zero);
@@ -68,7 +70,9 @@ namespace Utils
                 bulletSpace: 0.2f,
                 Hp: 50f,
                 maxHp: 50f,
-                damage: 30f);
+                damage: 30f,
+                followStartTime: 0.1f,
+                followRotMaxAngle: 80f);
 
             enemyEntity.AddPosComp(pos);
             enemyEntity.AddVelComp(Vector2.zero);
@@ -83,20 +87,24 @@ namespace Utils
             GameEntity host,
             Vector2 pos,
             float angle = 0,
-            float damage = 50f)
+            float damage = 50f,
+            float followStartTime = 0f,
+            float followRotMaxAngle = 360f)
         {
             var bulletEntity = contexts.game.CreateEntity();
             bulletEntity.isBulletTag = true;
             bulletEntity.isPhysicsTag = true;
 
             bulletEntity.AddStats(
-                velocity: 15f,
+                velocity: 18f,
                 // attackSpeed: 0.5f,
                 // bulletCount: 1,
                 // bulletSpace: 0.2f,
                 // Hp: 50f,
                 // maxHp: 50f,
-                damage: damage);
+                damage: damage,
+                followStartTime: followStartTime,
+                followRotMaxAngle: followRotMaxAngle);
 
             bulletEntity.AddPosComp(pos);
             bulletEntity.AddVelComp(angle.Angle2Vector2D() * 12f);
@@ -132,13 +140,16 @@ namespace Utils
             coinEntity.isCoinTag = true;
             coinEntity.isPhysicsTag = true;
 
-            coinEntity.AddStats(12f);
+            coinEntity.AddStats(
+                velocity: 16f,
+                followStartTime: 0f,
+                followRotMaxAngle: 900f);
 
             coinEntity.AddPosComp(pos);
             coinEntity.AddVelComp(Vector2.zero);
             coinEntity.AddRotComp(angle);
             coinEntity.AddCreateGameObjCmdComp(ActorTag.Coin);
-            coinEntity.AddCloseDestroyComp(0.2f);
+            coinEntity.AddCloseDestroyComp(0.4f);
 
             coinEntity.AddLifetimeComp(3f);
 
@@ -169,7 +180,9 @@ namespace Utils
             float bulletSpace = 0.2f,
             float Hp = 1f,
             float maxHp = 1f,
-            float damage = 0f)
+            float damage = 0f,
+            float followStartTime = 0f,
+            float followRotMaxAngle = 360f)
         {
             var stats = new float[StatFlag.All.ToIdx()];
             stats[StatFlag.Velocity.ToIdx()] = velocity;
@@ -179,6 +192,8 @@ namespace Utils
             stats[StatFlag.Hp.ToIdx()] = Hp;
             stats[StatFlag.MaxHp.ToIdx()] = maxHp;
             stats[StatFlag.Damage.ToIdx()] = damage;
+            stats[StatFlag.FollowStartTime.ToIdx()] = followStartTime;
+            stats[StatFlag.FollowRotMaxAngle.ToIdx()] = followRotMaxAngle;
             gameEntity.AddStatsComp(stats, new EventDispatcher());
 
             return gameEntity;

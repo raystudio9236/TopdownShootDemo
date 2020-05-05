@@ -47,7 +47,9 @@ namespace Systems.Fire
                         gameEntity,
                         playerView.Shoot.position,
                         fireCmd.Angle,
-                        playerDamage);
+                        playerDamage,
+                        gameEntity.GetStat(StatFlag.FollowStartTime),
+                        gameEntity.GetStat(StatFlag.FollowRotMaxAngle));
                 }
                 else
                 {
@@ -64,14 +66,7 @@ namespace Systems.Fire
                     var startPos =
                         shootPos + rightDir * (count - 1) * spacing / 2f;
 
-                    EntityUtil.CreateBulletEntity(
-                        _contexts,
-                        gameEntity,
-                        startPos,
-                        (startPos - playerPos).Vector2Angle2D(),
-                        playerDamage);
-
-                    for (var i = 1; i < count; i++)
+                    for (var i = 0; i < count; i++)
                     {
                         var spawnPos = startPos - rightDir * (i * spacing);
                         EntityUtil.CreateBulletEntity(
@@ -79,7 +74,9 @@ namespace Systems.Fire
                             gameEntity,
                             spawnPos,
                             (spawnPos - playerPos).Vector2Angle2D(),
-                            playerDamage);
+                            playerDamage,
+                            gameEntity.GetStat(StatFlag.FollowStartTime),
+                            gameEntity.GetStat(StatFlag.FollowRotMaxAngle));
                     }
                 }
             }

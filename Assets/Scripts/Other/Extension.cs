@@ -54,6 +54,7 @@ namespace Other
         public static bool IsValid(this GameEntity gameEntity)
         {
             return gameEntity != null
+                   && gameEntity.isEnabled
                    && gameEntity.hasIdComp
                    && !gameEntity.isDestroyFlag;
         }

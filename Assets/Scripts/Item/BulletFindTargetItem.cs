@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Components.Stat;
 using Components.Target;
 using Events;
 using Other;
@@ -22,11 +23,17 @@ namespace Item
                 EntityEvent.SpawnBullet, OnEntitySpawnBulletHandler);
         }
 
-        private void OnEntitySpawnBulletHandler(short eventtype,
+        private async void OnEntitySpawnBulletHandler(short eventtype,
             EntitySpawnBulletData data)
         {
             if (data.Host.isPlayerTag)
             {
+                await Task.Delay(
+                    (int) (data.Bullet.GetStat(StatFlag.FollowStartTime) * 1000));
+
+                if (!data.Bullet.IsValid())
+                    return;
+
                 data.Bullet.AddFindTargetCmdComp(
                     ActorTag.Enemy,
                     FindTargetType.Closet,

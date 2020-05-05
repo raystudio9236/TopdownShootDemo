@@ -2,6 +2,7 @@ using Components.Stat;
 using Components.Target;
 using Entitas;
 using Other;
+using UnityEngine;
 
 namespace Systems.Target
 {
@@ -23,6 +24,8 @@ namespace Systems.Target
 
         public void Execute()
         {
+            var dt = Time.deltaTime;
+
             foreach (var entity in _group.GetEntities())
             {
                 var targetComp = entity.targetComp;
@@ -51,12 +54,26 @@ namespace Systems.Target
                 var selfPos = entity.posComp.Value;
 
                 var dirVector = (targetPos - selfPos).normalized;
+                var currentAngle = entity.rotComp.Angle;
+                var finalAngle = dirVector.Vector2Angle2D();
+
+                var angle = Mathf.Abs(finalAngle - currentAngle);
+                var needRotAngle = angle > 180 ? 360 - angle : angle;
+                var maxRotAngle = entity.GetStat(StatFlag.FollowRotMaxAngle) * dt;
+
+                if (needRotAngle > maxRotAngle)
+                {
+                    finalAngle = currentAngle +
+                                 (angle >= 180 ? -1 : 1) 
+                                  * Mathf.Sign(finalAngle - currentAngle) 
+                                  * maxRotAngle;
+                }
 
                 var vel = entity.GetStat(StatFlag.Velocity);
 
                 // 朝着目标方向
-                entity.ReplaceRotComp(dirVector.Vector2Angle2D());
-                entity.ReplaceVelComp(dirVector * vel);
+                entity.ReplaceRotComp(finalAngle);
+                entity.ReplaceVelComp(finalAngle.Angle2Vector2D() * vel);
             }
         }
     }

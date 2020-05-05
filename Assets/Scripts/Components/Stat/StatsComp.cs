@@ -11,6 +11,7 @@ namespace Components.Stat
         Velocity, // 速度
 
         AttackSpeed, // 攻击速度
+
         BulletCount, // 子弹数量
         BulletSpace, // 子弹之间的间隔
 
@@ -18,6 +19,9 @@ namespace Components.Stat
         MaxHp, // 最大血量
 
         Damage, // 伤害
+
+        FollowStartTime, // 开始跟踪时间
+        FollowRotMaxAngle, // 跟踪旋转最大角度
 
         All,
     }

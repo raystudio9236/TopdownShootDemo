@@ -3,6 +3,7 @@ using Components.Stat;
 using Components.Target;
 using Entitas;
 using EZCameraShake;
+using Hybrid.Base;
 using Other;
 
 namespace Systems.Base
@@ -47,11 +48,18 @@ namespace Systems.Base
                     if (otherEntity.isPlayerTag)
                     {
                         if (!sourceEntity.hasTargetComp)
+                        {
+                            sourceEntity.viewComp.View.AsPhysics().Collider
+                                .enabled = false;
+                            
                             sourceEntity.AddTargetComp(
                                 otherEntity.idComp.Value,
                                 ActorTag.Player,
                                 FindTargetType.Given,
                                 LostTargetActionType.None);
+                            
+                            sourceEntity.RemoveLifetimeComp();
+                        }
                     }
                 }
                 else if (sourceEntity.isEnemyTag)
