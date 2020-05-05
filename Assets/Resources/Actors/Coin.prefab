@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3525181281648858467}
   - component: {fileID: 6891785984311784957}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2563299308211111317}
   - component: {fileID: -3022370568864571896}
   - component: {fileID: 5091611373225372866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4401538879811711378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpriteRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

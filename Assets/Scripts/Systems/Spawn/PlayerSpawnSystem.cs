@@ -2,6 +2,7 @@ using Entitas;
 using Manager;
 using UnityEngine;
 using Utils;
+using Utils.Entity;
 
 namespace Systems.Spawn
 {
@@ -16,7 +17,7 @@ namespace Systems.Spawn
 
         public void Initialize()
         {
-            var playerEntity = EntityUtil.CreatePlayerEntity(_contexts, 
+            var playerEntity = PlayerUtil.CreatePlayerEntity(_contexts, 
                 Vector2.zero, 
                 0);
             GameManager.Instance.Player = playerEntity;

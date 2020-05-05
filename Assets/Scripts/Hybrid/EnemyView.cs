@@ -1,5 +1,6 @@
 ﻿using Hybrid.Base;
 using Utils;
+using Utils.Entity;
 
 namespace Hybrid
 {

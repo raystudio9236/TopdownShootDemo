@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8778230590619178317}
   - component: {fileID: 8291526243700674038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4907927021229812379}
   - component: {fileID: 2072881321757160523}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7145168615808270305}
   - component: {fileID: 3011090314020804587}
   - component: {fileID: 1390460679695471838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.04}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.11673753
 --- !u!1 &7145645373074663233
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666889247676878942}
   - component: {fileID: 6907454777808088144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 7145645373074663233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 5969974465473518361}
   m_RootOrder: 0

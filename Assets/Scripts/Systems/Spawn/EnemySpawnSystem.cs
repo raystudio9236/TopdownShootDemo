@@ -5,6 +5,7 @@ using Entitas;
 using Other;
 using UnityEngine;
 using Utils;
+using Utils.Entity;
 
 namespace Systems.Spawn
 {
@@ -33,9 +34,9 @@ namespace Systems.Spawn
                 var y = Random.Range(-5f, 5f);
                 var pos = new Vector2(x, y) + playerEntity.posComp.Value;
 
-                var enemyEntity = EntityUtil.CreateEnemyEntity(_contexts,
+                var enemyEntity = EnemyUtil.CreateEnemyEntity(_contexts,
                     new Vector2(x, y),
-                    0f);
+                    Random.Range(0, 360f));
 
                 await Task.Delay(
                     (int) (enemyEntity.GetStat(StatFlag.FollowStartTime) *

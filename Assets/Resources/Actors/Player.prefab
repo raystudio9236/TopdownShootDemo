@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829210631645631138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3664123720463201204}
   - component: {fileID: -825242264832528426}
   - component: {fileID: 2462291901545029301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311128325194482803}
   - component: {fileID: 5398196685471652515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

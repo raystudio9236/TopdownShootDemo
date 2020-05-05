@@ -1,7 +1,7 @@
 using Components.Stat;
 using Manager;
 
-namespace Utils
+namespace Utils.Entity
 {
     public static class CommandUtil
     {

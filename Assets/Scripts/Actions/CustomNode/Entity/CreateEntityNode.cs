@@ -3,6 +3,7 @@ using Manager;
 using Other;
 using UnityEngine;
 using Utils;
+using Utils.Entity;
 
 namespace Actions.CustomNode.Entity
 {
@@ -21,7 +22,7 @@ namespace Actions.CustomNode.Entity
             // todo 扩展该类，实现各种Entity创建
             if (ActorTag == ActorTag.PlayerShadow)
             {
-                EntityUtil.CreatePlayerShadowEntity(
+                PlayerShadowUtil.CreatePlayerShadowEntity(
                     GameManager.Contexts,
                     pos,
                     angle);

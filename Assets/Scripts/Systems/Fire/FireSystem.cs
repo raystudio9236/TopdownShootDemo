@@ -5,6 +5,7 @@ using Hybrid;
 using Other;
 using UnityEngine;
 using Utils;
+using Utils.Entity;
 
 namespace Systems.Fire
 {
@@ -42,7 +43,7 @@ namespace Systems.Fire
 
                 if (fireCmd.Count == 1)
                 {
-                    EntityUtil.CreateBulletEntity(
+                    BulletUtil.CreateBulletEntity(
                         _contexts,
                         gameEntity,
                         playerView.Shoot.position,
@@ -69,7 +70,7 @@ namespace Systems.Fire
                     for (var i = 0; i < count; i++)
                     {
                         var spawnPos = startPos - rightDir * (i * spacing);
-                        EntityUtil.CreateBulletEntity(
+                        BulletUtil.CreateBulletEntity(
                             _contexts,
                             gameEntity,
                             spawnPos,
