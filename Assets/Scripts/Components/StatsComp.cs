@@ -1,6 +1,7 @@
-
+using System;
 using Entitas;
 
+[Serializable]
 public enum VarFlag : short
 {
     Velocity, // 速度  

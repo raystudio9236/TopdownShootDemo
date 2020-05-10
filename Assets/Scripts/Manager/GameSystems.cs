@@ -1,3 +1,5 @@
+using Systems.Item;
+
 namespace Manager
 {
     public class GameSystems : Feature
@@ -31,6 +33,7 @@ namespace Manager
             Add(new PhysicsSystem(contexts));
 
             Add(new CloseDestroySystem(contexts));
+            Add(new ChangeItemSystem(contexts));
 
             Add(new GameEventSystems(contexts));
 
