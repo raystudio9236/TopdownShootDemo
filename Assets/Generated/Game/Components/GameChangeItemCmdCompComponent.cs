@@ -11,19 +11,17 @@ public partial class GameEntity {
     public Components.Item.ChangeItemCmdComp changeItemCmdComp { get { return (Components.Item.ChangeItemCmdComp)GetComponent(GameComponentsLookup.ChangeItemCmdComp); } }
     public bool hasChangeItemCmdComp { get { return HasComponent(GameComponentsLookup.ChangeItemCmdComp); } }
 
-    public void AddChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList, bool newDirty) {
+    public void AddChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList) {
         var index = GameComponentsLookup.ChangeItemCmdComp;
         var component = (Components.Item.ChangeItemCmdComp)CreateComponent(index, typeof(Components.Item.ChangeItemCmdComp));
         component.ChangeItemList = newChangeItemList;
-        component.Dirty = newDirty;
         AddComponent(index, component);
     }
 
-    public void ReplaceChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList, bool newDirty) {
+    public void ReplaceChangeItemCmdComp(System.Collections.Generic.List<Components.Item.ChangeItemPair> newChangeItemList) {
         var index = GameComponentsLookup.ChangeItemCmdComp;
         var component = (Components.Item.ChangeItemCmdComp)CreateComponent(index, typeof(Components.Item.ChangeItemCmdComp));
         component.ChangeItemList = newChangeItemList;
-        component.Dirty = newDirty;
         ReplaceComponent(index, component);
     }
 

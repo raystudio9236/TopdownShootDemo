@@ -64,6 +64,8 @@ namespace Systems.Item
                 {
                     itemlist[i].PickUp(gameEntity);
                 }
+                
+                changeList.Clear();
             }
         }
     }

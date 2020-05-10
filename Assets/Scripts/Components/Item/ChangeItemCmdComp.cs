@@ -21,7 +21,6 @@ namespace Components.Item
     public sealed class ChangeItemCmdComp : IComponent
     {
         public List<ChangeItemPair> ChangeItemList;
-        public bool Dirty;
     }
 
     public static class ChangeItemCmdCompEx
@@ -31,13 +30,12 @@ namespace Components.Item
         {
             if (!entity.hasChangeItemCmdComp)
             {
-                entity.AddChangeItemCmdComp(new List<ChangeItemPair>(),
-                    false);
+                entity.AddChangeItemCmdComp(new List<ChangeItemPair>());
             }
 
             var list = entity.changeItemCmdComp.ChangeItemList;
             list.Add(changeItemPair);
-            entity.ReplaceChangeItemCmdComp(list, true);
+            entity.ReplaceChangeItemCmdComp(list);
         }
     }
 }
