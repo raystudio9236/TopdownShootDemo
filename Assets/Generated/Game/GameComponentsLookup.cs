@@ -9,71 +9,86 @@
 public static class GameComponentsLookup {
 
     public const int ActionComp = 0;
-    public const int BulletTag = 1;
-    public const int CloseDestroyComp = 2;
-    public const int CoinTag = 3;
-    public const int CreateGameObjCmdComp = 4;
-    public const int DestroyFlag = 5;
-    public const int DestroyFlagListener = 6;
-    public const int EnemyTag = 7;
-    public const int FireCmdComp = 8;
-    public const int IdComp = 9;
-    public const int LifetimeComp = 10;
-    public const int PhysicsTag = 11;
-    public const int PlayerTag = 12;
-    public const int PosComp = 13;
-    public const int RotComp = 14;
-    public const int StatsComp = 15;
-    public const int TargetComp = 16;
-    public const int TimerComp = 17;
-    public const int VelComp = 18;
-    public const int ViewComp = 19;
+    public const int CloseDestroyComp = 1;
+    public const int CreateGameObjCmdComp = 2;
+    public const int DestroyFlag = 3;
+    public const int IdComp = 4;
+    public const int LifetimeComp = 5;
+    public const int TimerComp = 6;
+    public const int ViewComp = 7;
+    public const int EventComp = 8;
+    public const int FireCmdComp = 9;
+    public const int ChangeItemCmdComp = 10;
+    public const int ItemComp = 11;
+    public const int ChangeHpComp = 12;
+    public const int StatsComp = 13;
+    public const int BulletTag = 14;
+    public const int CoinTag = 15;
+    public const int EnemyTag = 16;
+    public const int PhysicsTag = 17;
+    public const int PlayerTag = 18;
+    public const int FindTargetCmdComp = 19;
+    public const int TargetComp = 20;
+    public const int PosComp = 21;
+    public const int RotComp = 22;
+    public const int VelComp = 23;
+    public const int DestroyFlagListener = 24;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "ActionComp",
-        "BulletTag",
         "CloseDestroyComp",
-        "CoinTag",
         "CreateGameObjCmdComp",
         "DestroyFlag",
-        "DestroyFlagListener",
-        "EnemyTag",
-        "FireCmdComp",
         "IdComp",
         "LifetimeComp",
+        "TimerComp",
+        "ViewComp",
+        "EventComp",
+        "FireCmdComp",
+        "ChangeItemCmdComp",
+        "ItemComp",
+        "ChangeHpComp",
+        "StatsComp",
+        "BulletTag",
+        "CoinTag",
+        "EnemyTag",
         "PhysicsTag",
         "PlayerTag",
+        "FindTargetCmdComp",
+        "TargetComp",
         "PosComp",
         "RotComp",
-        "StatsComp",
-        "TargetComp",
-        "TimerComp",
         "VelComp",
-        "ViewComp"
+        "DestroyFlagListener"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(ActionComp),
-        typeof(BulletTag),
-        typeof(CloseDestroyComp),
-        typeof(CoinTag),
-        typeof(CreateGameObjCmdComp),
-        typeof(DestroyFlag),
-        typeof(DestroyFlagListenerComponent),
-        typeof(EnemyTag),
-        typeof(FireCmdComp),
-        typeof(IdComp),
-        typeof(LifetimeComp),
-        typeof(PhysicsTag),
-        typeof(PlayerTag),
-        typeof(PosComp),
-        typeof(RotComp),
-        typeof(StatsComp),
-        typeof(TargetComp),
-        typeof(TimerComp),
-        typeof(VelComp),
-        typeof(ViewComp)
+        typeof(Components.Action.ActionComp),
+        typeof(Components.Base.CloseDestroyComp),
+        typeof(Components.Base.CreateGameObjCmdComp),
+        typeof(Components.Base.DestroyFlag),
+        typeof(Components.Base.IdComp),
+        typeof(Components.Base.LifetimeComp),
+        typeof(Components.Base.TimerComp),
+        typeof(Components.Base.ViewComp),
+        typeof(Components.Event.EventComp),
+        typeof(Components.Fire.FireCmdComp),
+        typeof(Components.Item.ChangeItemCmdComp),
+        typeof(Components.Item.ItemComp),
+        typeof(Components.Stat.ChangeHpComp),
+        typeof(Components.Stat.StatsComp),
+        typeof(Components.Tag.BulletTag),
+        typeof(Components.Tag.CoinTag),
+        typeof(Components.Tag.EnemyTag),
+        typeof(Components.Tag.PhysicsTag),
+        typeof(Components.Tag.PlayerTag),
+        typeof(Components.Target.FindTargetCmdComp),
+        typeof(Components.Target.TargetComp),
+        typeof(Components.Transform.PosComp),
+        typeof(Components.Transform.RotComp),
+        typeof(Components.Transform.VelComp),
+        typeof(DestroyFlagListenerComponent)
     };
 }

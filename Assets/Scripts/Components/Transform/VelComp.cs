@@ -1,7 +1,10 @@
 using Entitas;
 using UnityEngine;
 
-public sealed class VelComp : IComponent
+namespace Components.Transform
 {
-    public Vector2 Value;
+    public sealed class VelComp : IComponent
+    {
+        public Vector2 Value;
+    }
 }

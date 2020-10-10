@@ -8,20 +8,22 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public StatsComp statsComp { get { return (StatsComp)GetComponent(GameComponentsLookup.StatsComp); } }
+    public Components.Stat.StatsComp statsComp { get { return (Components.Stat.StatsComp)GetComponent(GameComponentsLookup.StatsComp); } }
     public bool hasStatsComp { get { return HasComponent(GameComponentsLookup.StatsComp); } }
 
-    public void AddStatsComp(float[] newVars) {
+    public void AddStatsComp(float[] newVars, Utils.Event.EventDispatcher newEventDispatcher) {
         var index = GameComponentsLookup.StatsComp;
-        var component = (StatsComp)CreateComponent(index, typeof(StatsComp));
+        var component = (Components.Stat.StatsComp)CreateComponent(index, typeof(Components.Stat.StatsComp));
         component.Vars = newVars;
+        component.EventDispatcher = newEventDispatcher;
         AddComponent(index, component);
     }
 
-    public void ReplaceStatsComp(float[] newVars) {
+    public void ReplaceStatsComp(float[] newVars, Utils.Event.EventDispatcher newEventDispatcher) {
         var index = GameComponentsLookup.StatsComp;
-        var component = (StatsComp)CreateComponent(index, typeof(StatsComp));
+        var component = (Components.Stat.StatsComp)CreateComponent(index, typeof(Components.Stat.StatsComp));
         component.Vars = newVars;
+        component.EventDispatcher = newEventDispatcher;
         ReplaceComponent(index, component);
     }
 

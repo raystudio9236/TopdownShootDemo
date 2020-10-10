@@ -1,19 +1,26 @@
 using Entitas;
+using Manager;
 using UnityEngine;
+using Utils;
+using Utils.Entity;
 
-public class PlayerSpawnSystem : IInitializeSystem
+namespace Systems.Spawn
 {
-    private readonly Contexts _contexts;
+    public class PlayerSpawnSystem : IInitializeSystem
+    {
+        private readonly Contexts _contexts;
     
-    public PlayerSpawnSystem(Contexts contexts)
-    {
-        _contexts = contexts;
-    }
+        public PlayerSpawnSystem(Contexts contexts)
+        {
+            _contexts = contexts;
+        }
 
-    public void Initialize()
-    {
-        EntityUtil.CreatePlayerEntity(_contexts, 
-            Vector2.zero, 
-            0);
+        public void Initialize()
+        {
+            var playerEntity = PlayerUtil.CreatePlayerEntity(_contexts, 
+                Vector2.zero, 
+                0);
+            GameManager.Instance.Player = playerEntity;
+        }
     }
 }

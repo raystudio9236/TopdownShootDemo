@@ -1,58 +1,55 @@
 ﻿using System.Collections.Generic;
+using Components.Stat;
 using Entitas;
+using Other;
 using UnityEngine;
 
-public class PlayerInputProcessSystem : ReactiveSystem<InputEntity>
+namespace Systems.Input
 {
-    private readonly Contexts _contexts;
-    private readonly IGroup<GameEntity> _playerGroup;
-    private readonly Camera _mainCamera;
-
-    public PlayerInputProcessSystem(Contexts contexts) : base(contexts.input)
+    public class PlayerInputProcessSystem : ReactiveSystem<InputEntity>
     {
-        _mainCamera = Camera.main;
-        _contexts = contexts;
-        _playerGroup = _contexts.game.GetGroup(GameMatcher.PlayerTag);
-    }
+        private readonly Contexts _contexts;
+        private readonly Camera _mainCamera;
 
-    protected override void Execute(List<InputEntity> entities)
-    {
-        var playerEntity = _playerGroup.GetSingleEntity();
-
-        foreach (var inputEntity in entities)
+        public PlayerInputProcessSystem(Contexts contexts) : base(contexts.input)
         {
+            _mainCamera = Camera.main;
+            _contexts = contexts;
+        }
+
+        protected override bool Filter(InputEntity entity)
+        {
+            return true;
+        }
+
+        protected override ICollector<InputEntity> GetTrigger(
+            IContext<InputEntity> context)
+        {
+            return context.CreateCollector(InputMatcher.InputComp);
+        }
+
+        protected override void Execute(List<InputEntity> entities)
+        {
+            var playerEntity = _contexts.game.playerTagEntity;
+            var inputComp = _contexts.input.inputComp;
+
             // 处理玩家移动
-            // todo 玩家的移动速度暂时设置为10
+            var velocity =
+                playerEntity.GetStat(StatFlag.Velocity);
             playerEntity.ReplaceVelComp(
                 new Vector2(
-                    inputEntity.inputComp.Dir.x * 10,
-                    inputEntity.inputComp.Dir.y * 10
-                    )
-                );
-            
+                    inputComp.Dir.x * velocity,
+                    inputComp.Dir.y * velocity
+                )
+            );
+
             // 处理玩家旋转
-            var mousePos = inputEntity.inputComp.MousePos;
+            var mousePos = inputComp.MousePos;
             var worldPos = _mainCamera.ScreenToWorldPoint(mousePos);
             var dir = new Vector2(worldPos.x, worldPos.y)
                       - playerEntity.posComp.Value;
             var angle = dir.Vector2Angle2D();
             playerEntity.ReplaceRotComp(angle);
-
-            // 处理玩家开火
-            if (inputEntity.inputComp.MainButton)
-            {
-                playerEntity.AddFireCmdComp(angle);
-            }
         }
-    }
-
-    protected override bool Filter(InputEntity entity)
-    {
-        return true;
-    }
-
-    protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
-    {
-        return context.CreateCollector(InputMatcher.InputComp);
     }
 }

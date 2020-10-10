@@ -1,14 +1,17 @@
-﻿﻿using Entitas;
+﻿using Entitas;
 
-public interface IView
+namespace Hybrid.Base
 {
-    void Link(Contexts contexts, IEntity entity);
-}
+    public interface IView
+    {
+        void Link(Contexts contexts, IEntity entity);
+    }
 
- public static class IViewEx
- {
-     public static IPhysicsView AsPhysics(this IView view)
-     {
-         return view as IPhysicsView;
-     }
- }
+    public static class IViewEx
+    {
+        public static IPhysicsView AsPhysics(this IView view)
+        {
+            return view as IPhysicsView;
+        }
+    }
+}

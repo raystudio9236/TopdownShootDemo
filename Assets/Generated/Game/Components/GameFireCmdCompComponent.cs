@@ -8,20 +8,22 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public FireCmdComp fireCmdComp { get { return (FireCmdComp)GetComponent(GameComponentsLookup.FireCmdComp); } }
+    public Components.Fire.FireCmdComp fireCmdComp { get { return (Components.Fire.FireCmdComp)GetComponent(GameComponentsLookup.FireCmdComp); } }
     public bool hasFireCmdComp { get { return HasComponent(GameComponentsLookup.FireCmdComp); } }
 
-    public void AddFireCmdComp(float newAngle) {
+    public void AddFireCmdComp(float newAngle, int newCount) {
         var index = GameComponentsLookup.FireCmdComp;
-        var component = (FireCmdComp)CreateComponent(index, typeof(FireCmdComp));
+        var component = (Components.Fire.FireCmdComp)CreateComponent(index, typeof(Components.Fire.FireCmdComp));
         component.Angle = newAngle;
+        component.Count = newCount;
         AddComponent(index, component);
     }
 
-    public void ReplaceFireCmdComp(float newAngle) {
+    public void ReplaceFireCmdComp(float newAngle, int newCount) {
         var index = GameComponentsLookup.FireCmdComp;
-        var component = (FireCmdComp)CreateComponent(index, typeof(FireCmdComp));
+        var component = (Components.Fire.FireCmdComp)CreateComponent(index, typeof(Components.Fire.FireCmdComp));
         component.Angle = newAngle;
+        component.Count = newCount;
         ReplaceComponent(index, component);
     }
 

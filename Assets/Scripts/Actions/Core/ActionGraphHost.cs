@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Utils;
+using Utils.Pool;
 
 namespace Actions.Core
 {
@@ -13,7 +15,7 @@ namespace Actions.Core
         Done,
     }
 
-    public class ActionGraphHost
+    public class ActionGraphHost : IPoolItem
     {
         /// <summary>
         /// 变量数据背包
@@ -25,12 +27,20 @@ namespace Actions.Core
             private Dictionary<long, int> _iVars;
             private Dictionary<long, float> _fVars;
 
-            private Dictionary<string, object> _graphVars =
+            private readonly Dictionary<string, object> _graphVars =
                 new Dictionary<string, object>();
 
             public long GetFlag(ActionNode node, int index)
             {
                 return node.GetHashCode() * VarNum + index;
+            }
+
+            public void Clear()
+            {
+                _iVars?.Clear();
+                _fVars?.Clear();
+
+                _graphVars.Clear();
             }
 
             #region GraphVar
@@ -134,6 +144,8 @@ namespace Actions.Core
             #endregion
         }
 
+        public string Name { get; private set; }
+
         public ActionGraph Graph { get; private set; }
         public GameEntity Entity { get; private set; }
 
@@ -146,8 +158,26 @@ namespace Actions.Core
         private readonly HashSet<ActionNode> _executeNodeSet =
             new HashSet<ActionNode>();
 
-        public void SetData(ActionGraph graph, GameEntity entity)
+        public void AwakeFromPool()
         {
+        }
+
+        public void RecycleToPool()
+        {
+            Name = string.Empty;
+
+            Graph = null;
+            Entity = null;
+
+            Var.Clear();
+
+            _executeNodeList.Clear();
+            _executeNodeSet.Clear();
+        }
+
+        public void SetData(string name, ActionGraph graph, GameEntity entity)
+        {
+            Name = name;
             Graph = graph;
             Entity = entity;
 

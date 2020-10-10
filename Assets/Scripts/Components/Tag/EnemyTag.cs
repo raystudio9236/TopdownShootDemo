@@ -1,5 +1,8 @@
 using Entitas;
 
-public sealed class EnemyTag : IComponent
+namespace Components.Tag
 {
+    public sealed class EnemyTag : IComponent
+    {
+    }
 }

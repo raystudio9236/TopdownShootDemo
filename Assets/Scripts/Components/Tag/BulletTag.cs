@@ -1,5 +1,8 @@
 using Entitas;
 
-public sealed class BulletTag : IComponent
+namespace Components.Tag
 {
+    public sealed class BulletTag : IComponent
+    {
+    }
 }

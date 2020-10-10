@@ -1,6 +1,8 @@
-using Entitas.Unity;
-using UnityEngine;
+using Hybrid.Base;
 
-public class BulletView : PhysicsView
+namespace Hybrid
 {
+    public class BulletView : PhysicsView
+    {
+    }
 }

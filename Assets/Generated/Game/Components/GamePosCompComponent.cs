@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public PosComp posComp { get { return (PosComp)GetComponent(GameComponentsLookup.PosComp); } }
+    public Components.Transform.PosComp posComp { get { return (Components.Transform.PosComp)GetComponent(GameComponentsLookup.PosComp); } }
     public bool hasPosComp { get { return HasComponent(GameComponentsLookup.PosComp); } }
 
     public void AddPosComp(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.PosComp;
-        var component = (PosComp)CreateComponent(index, typeof(PosComp));
+        var component = (Components.Transform.PosComp)CreateComponent(index, typeof(Components.Transform.PosComp));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplacePosComp(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.PosComp;
-        var component = (PosComp)CreateComponent(index, typeof(PosComp));
+        var component = (Components.Transform.PosComp)CreateComponent(index, typeof(Components.Transform.PosComp));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

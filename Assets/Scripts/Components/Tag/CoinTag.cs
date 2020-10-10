@@ -1,5 +1,8 @@
 using Entitas;
 
-public class CoinTag : IComponent
+namespace Components.Tag
 {
+    public class CoinTag : IComponent
+    {
+    }
 }

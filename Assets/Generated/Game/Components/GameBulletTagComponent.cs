@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly BulletTag bulletTagComponent = new BulletTag();
+    static readonly Components.Tag.BulletTag bulletTagComponent = new Components.Tag.BulletTag();
 
     public bool isBulletTag {
         get { return HasComponent(GameComponentsLookup.BulletTag); }

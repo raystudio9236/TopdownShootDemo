@@ -8,20 +8,26 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public TargetComp targetComp { get { return (TargetComp)GetComponent(GameComponentsLookup.TargetComp); } }
+    public Components.Target.TargetComp targetComp { get { return (Components.Target.TargetComp)GetComponent(GameComponentsLookup.TargetComp); } }
     public bool hasTargetComp { get { return HasComponent(GameComponentsLookup.TargetComp); } }
 
-    public void AddTargetComp(int newTargetId) {
+    public void AddTargetComp(int newTargetId, Other.ActorTag newTargetTag, Components.Target.FindTargetType newFindTargetType, Components.Target.LostTargetActionType newLostTargetActionType) {
         var index = GameComponentsLookup.TargetComp;
-        var component = (TargetComp)CreateComponent(index, typeof(TargetComp));
+        var component = (Components.Target.TargetComp)CreateComponent(index, typeof(Components.Target.TargetComp));
         component.TargetId = newTargetId;
+        component.TargetTag = newTargetTag;
+        component.FindTargetType = newFindTargetType;
+        component.LostTargetActionType = newLostTargetActionType;
         AddComponent(index, component);
     }
 
-    public void ReplaceTargetComp(int newTargetId) {
+    public void ReplaceTargetComp(int newTargetId, Other.ActorTag newTargetTag, Components.Target.FindTargetType newFindTargetType, Components.Target.LostTargetActionType newLostTargetActionType) {
         var index = GameComponentsLookup.TargetComp;
-        var component = (TargetComp)CreateComponent(index, typeof(TargetComp));
+        var component = (Components.Target.TargetComp)CreateComponent(index, typeof(Components.Target.TargetComp));
         component.TargetId = newTargetId;
+        component.TargetTag = newTargetTag;
+        component.FindTargetType = newFindTargetType;
+        component.LostTargetActionType = newLostTargetActionType;
         ReplaceComponent(index, component);
     }
 

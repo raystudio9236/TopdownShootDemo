@@ -17,6 +17,6 @@ public static class PhysicsComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(PhysicsComp)
+        typeof(Components.Physics.PhysicsComp)
     };
 }

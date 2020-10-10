@@ -1,24 +1,27 @@
 using Entitas;
 
-public class SyncPosSystem : IExecuteSystem
+namespace Systems.Transform
 {
-    private readonly  IGroup<GameEntity> _group;
-    
-    public SyncPosSystem(Contexts contexts)
+    public class SyncPosSystem : IExecuteSystem
     {
-        _group = contexts.game.GetGroup(GameMatcher.AllOf(
-            GameMatcher.ViewComp,
-            GameMatcher.PosComp,
-            GameMatcher.PhysicsTag
-        ));
-    }
+        private readonly  IGroup<GameEntity> _group;
     
-    public void Execute()
-    {
-        foreach (var gameEntity in _group.GetEntities())
+        public SyncPosSystem(Contexts contexts)
         {
-            var pos = gameEntity.viewComp.View.transform.position;
-            gameEntity.ReplacePosComp(pos);
+            _group = contexts.game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.ViewComp,
+                GameMatcher.PosComp,
+                GameMatcher.PhysicsTag
+            ));
+        }
+    
+        public void Execute()
+        {
+            foreach (var gameEntity in _group.GetEntities())
+            {
+                var pos = gameEntity.viewComp.View.transform.position;
+                gameEntity.ReplacePosComp(pos);
+            }
         }
     }
 }

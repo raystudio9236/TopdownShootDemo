@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PhysicsTag physicsTagComponent = new PhysicsTag();
+    static readonly Components.Tag.PhysicsTag physicsTagComponent = new Components.Tag.PhysicsTag();
 
     public bool isPhysicsTag {
         get { return HasComponent(GameComponentsLookup.PhysicsTag); }

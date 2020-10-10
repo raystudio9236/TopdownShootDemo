@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly CoinTag coinTagComponent = new CoinTag();
+    static readonly Components.Tag.CoinTag coinTagComponent = new Components.Tag.CoinTag();
 
     public bool isCoinTag {
         get { return HasComponent(GameComponentsLookup.CoinTag); }

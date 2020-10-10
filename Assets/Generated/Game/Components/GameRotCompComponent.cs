@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public RotComp rotComp { get { return (RotComp)GetComponent(GameComponentsLookup.RotComp); } }
+    public Components.Transform.RotComp rotComp { get { return (Components.Transform.RotComp)GetComponent(GameComponentsLookup.RotComp); } }
     public bool hasRotComp { get { return HasComponent(GameComponentsLookup.RotComp); } }
 
     public void AddRotComp(float newAngle) {
         var index = GameComponentsLookup.RotComp;
-        var component = (RotComp)CreateComponent(index, typeof(RotComp));
+        var component = (Components.Transform.RotComp)CreateComponent(index, typeof(Components.Transform.RotComp));
         component.Angle = newAngle;
         AddComponent(index, component);
     }
 
     public void ReplaceRotComp(float newAngle) {
         var index = GameComponentsLookup.RotComp;
-        var component = (RotComp)CreateComponent(index, typeof(RotComp));
+        var component = (Components.Transform.RotComp)CreateComponent(index, typeof(Components.Transform.RotComp));
         component.Angle = newAngle;
         ReplaceComponent(index, component);
     }

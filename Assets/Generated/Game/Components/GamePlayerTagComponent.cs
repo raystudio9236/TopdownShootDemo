@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly PlayerTag playerTagComponent = new PlayerTag();
+    static readonly Components.Tag.PlayerTag playerTagComponent = new Components.Tag.PlayerTag();
 
     public bool isPlayerTag {
         get { return HasComponent(GameComponentsLookup.PlayerTag); }

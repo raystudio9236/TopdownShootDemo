@@ -1,26 +1,29 @@
 using Entitas;
 using UnityEngine;
 
-public class InputSystem : IExecuteSystem
+namespace Systems.Input
 {
-    private readonly Contexts _contexts;
-
-    public InputSystem(Contexts contexts)
+    public class InputSystem : IExecuteSystem
     {
-        _contexts = contexts;
-    }
+        private readonly Contexts _contexts;
 
-    public void Execute()
-    {
-        var playerInputEntity = _contexts.input.CreateEntity();
-        playerInputEntity.AddInputComp(new Vector2(
-            Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")
-        ),
-            Input.mousePosition,
-            Input.GetMouseButton(0),
-            Input.GetMouseButtonDown(0),
-            Input.GetMouseButton(1),
-            Input.GetMouseButtonDown(1));
+        public InputSystem(Contexts contexts)
+        {
+            _contexts = contexts;
+        }
+
+        public void Execute()
+        {
+            var playerInputEntity = _contexts.input.CreateEntity();
+            playerInputEntity.AddInputComp(new Vector2(
+                    UnityEngine.Input.GetAxis("Horizontal"),
+                    UnityEngine.Input.GetAxis("Vertical")
+                ),
+                UnityEngine.Input.mousePosition,
+                UnityEngine.Input.GetMouseButton(0),
+                UnityEngine.Input.GetMouseButtonDown(0),
+                UnityEngine.Input.GetMouseButton(1),
+                UnityEngine.Input.GetMouseButtonDown(1));
+        }
     }
 }
